@@ -20,5 +20,6 @@ serviceWorker.unregister();
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+//import Garcom from './garcom';
 
 ReactDOM.render(<App />, document.getElementById('root'));
