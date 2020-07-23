@@ -1,7 +1,7 @@
 import React from 'react';
 //import { isAuthenticated } from "./auth"
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Garcom from './garcom.js'
+import Garcom from './pages/garçom/garcom.js'
 
 /* const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
