@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 
 //import Routes from "./routes";
 /* export function enviarPedido() {
@@ -10,9 +10,7 @@
 
 function Garcom() {
     return (
-      <div className="App">
-        <buttom>Enviar Pedido</buttom>
-      </div>
+        <button>Enviar Pedido</button>
     );
   }
   
