@@ -1,7 +1,10 @@
 import React from 'react';
 //import { isAuthenticated } from "./auth"
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+import Login from './pages/login'
 import Garcom from './pages/garçom/garcom.js'
+
 
 /* const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -19,7 +22,7 @@ import Garcom from './pages/garçom/garcom.js'
 const Routes = () => (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={() => <h1>Hello World</h1>} />
+        <Route exact path="/" component={Login} />
         {/* <PrivateRoute path="/app" component={() => <h1>Você está logado</h1>} /> */}
         <Route path="/cadastro" component={() => <h1>Cadastro</h1>} />
         <Route path="/garcom" component={Garcom}/>
