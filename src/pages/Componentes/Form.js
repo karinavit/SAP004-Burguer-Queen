@@ -1,12 +1,8 @@
 import React from '../../../node_modules/react';
 import Input from './Input';
 import Button from './Button';
-import firebaseapp from '../fireconfig.js';
+import firebaseapp from '../../fireconfig.js';
 import 'firebase/auth'
-
-/* import React from 'react';
-import Input from './Input';
-import Button from './Button' */
 
 /* essa já era uma funcion comentada 
 function ActionLink() {
@@ -14,24 +10,7 @@ function ActionLink() {
       e.preventDefault();
       console.log('O link foi clicado.');
     } */
-
-/* function Form() { 
-
->>>>>>> 212a5c71dced7ed9b10c1e8057e2ade8dceb5f81
-    return (
-        <form>
-            <p>
-            <Input placeholder="Email"/>  
-            </p>
-            <p>
-            <Input type="password" placeholder="Senha"/>
-            </p>
-            <Button btname="LogIn"/>
-                         </form>
-        );}  */
-
-      
-        
+            
         /* const cadastro = () => {
           firebase.auth().createUserWithEmailAndPassword(email, pass).then(user => {
             console.log(user)
