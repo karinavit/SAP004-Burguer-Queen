@@ -8,7 +8,7 @@ function Input(props) {
             id={props.id}
             type="text"
             placeholder={props.placeholder}
-            value={props.valeu}
+            value={props.value}
             {...props}
         />
         <label htmlFor={props.id}>

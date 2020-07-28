@@ -1,50 +1,81 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Input from './Input';
 import Button from './Button';
-import firebaseapp from '../../fireconfig.js';
-import 'firebase/auth'
+import firebase from '../../fireconfig.js';
+//import * as firebase from "firebase/app";
+
 
 
 function FormCad() { 
-    const [email, setEmail] = React.useState('');
-    const [pass, setPass] = React.useState(''); 
-
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState(''); 
+    const [cargo, setCargo] = useState(''); 
     
-     const cadastro = (e) => {
+
+    const register = (e) => {
       e.preventDefault()
-        firebaseapp.auth().createUserWithEmailAndPassword(email, pass).then(user => {
-          console.log(user)
-          //.catch(function(error) {
-        // Handle Errors here.
-        //var errorCode = error.code;
-        //var errorMessage = error.message;
-        //})
-       });
+      firebase
+      .auth
+      .createUserWithEmailAndPassword(name, email, cargo)
+      .then(() => {
+      const userId = firebase.auth().currentUser.uid
+      firebase
+      .firestore.collection('user')
+      .user.doc(userId).set({
+          id_user: userId,
+          displayName: name,
+          email: email,
+          cargo: cargo
+
+      })
       }
+      )}
+
 
     return (
       <>
         <form>
-            <p>
-            <Input placeholder="Nome"/>  
-            </p>
-            <p>
+
+            <Input placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
             <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
-            </p>
-            <p>
             <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
-            </p>
-            <p>
-            <Input type="radio" text="Salão"/>
-            </p>
-            <p>
-            <Input type="radio" text="Cozinha"/>
-            </p>
-            <Button onClick={e=> cadastro(e)} btname="Cadastrar"/>
-            <Button btname="Voltar"/>
+            <Input type="radio" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <Input type="radio" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <Button onClick={e=> register(e)}>Cadastrar</Button>
+            <Button>Voltar</Button>
         </form>
       </>
     );
-  }
-  
+}
+    
   export default FormCad;
+
+
+
+
+
+   /* function user (name, email, cargo){
+      firebaseapp
+      .createUserWithEmailAndPassword(name, password)
+        .then(() => {
+          user.updateProfile({ displayName: userId });
+        })
+        .then(() => {
+          const uid = firebase.auth().currentUser.uid;
+          userCollection.doc(uid).set(document);
+        })
+        .catch((error) => {
+          const errorResult = errorRegister.filter(item => item.code === error.code);
+          errorFunc(errorResult[0].message);
+        });
+    } 
+ */
+
+  /* const user = (e) => {
+        e.preventDefault()
+        console.log(email,pass)
+      firebaseapp.auth().createUserWithEmailAndPassword(name, email, cargo).then(user => {
+        console.log(user)
+          })
+    }; */
