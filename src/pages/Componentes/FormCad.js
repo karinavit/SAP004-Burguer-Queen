@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import Input from './Input';
 import Button from './Button';
 import firebase from '../../fireconfig.js';
+import 'firebase/auth';
+import 'firebase/firestore';
 //import * as firebase from "firebase/app";
 
 
@@ -16,19 +18,26 @@ function FormCad() {
     const register = (e) => {
       e.preventDefault()
       firebase
-      .auth
-      .createUserWithEmailAndPassword(name, email, cargo)
+      .auth()
+      .createUserWithEmailAndPassword(email, pass)
       .then(() => {
       const userId = firebase.auth().currentUser.uid
       firebase
-      .firestore.collection('user')
-      .user.doc(userId).set({
+      .firestore()
+      .collection('user')
+      .doc(userId)
+      .set({
           id_user: userId,
           displayName: name,
           email: email,
           cargo: cargo
 
       })
+      .then(
+        firebase.auth().currentUser.updateProfile({
+          displayName: name, 
+        })
+      )
       }
       )}
 
