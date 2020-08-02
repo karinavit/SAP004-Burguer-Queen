@@ -1,4 +1,7 @@
 import React from "react";
+import firebase from '../../fireconfig.js';
+import 'firebase/auth'
+import 'firebase/firestore'
 
 //import Routes from "./routes";
 /* export function enviarPedido() {
@@ -7,10 +10,24 @@ import React from "react";
     return enviarPedido
 }; */
 
+const menu = () => {
+    firebase
+    .firestore().collection("menu").get().then((snapshot) =>{ snapshot.docs.forEach((doc)=> {
+        console.log(doc.data(menu))
+    })
+
+    }
+    )}
 
 function Garcom() {
+    
+
+
     return (
-        <button>Enviar Pedido</button>
+        <select>
+            <option>Itens</option>
+         </select>
+      
     );
   }
   
