@@ -1,6 +1,6 @@
 import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
-import Input from './Input';
+import Input from './Input/Input';
 import Button from './Button';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'
