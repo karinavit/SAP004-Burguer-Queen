@@ -1,6 +1,7 @@
 import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
-import Input from './Input';
+import { Link } from 'react-router-dom';
+import Input from './Input/Input';
 import Button from './Button';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'
@@ -56,6 +57,7 @@ function ActionLink() {
         
             return (
                 <form>
+                  <h2>Login</h2>
                         <p>
                             <Input placeholder="Email" 
                             value={email} onChange={e=> setEmail(e.target.value)}
@@ -67,6 +69,7 @@ function ActionLink() {
                             />
                         </p>
                     <Button onClick={e=> login(e)}>Logar</Button>
+                    <label type="button">Ainda não tem cadastro? Clique <Link to="/cadastro">aqui</Link></label>
                     
                 </form>
                  

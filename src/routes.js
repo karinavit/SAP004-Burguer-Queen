@@ -5,7 +5,7 @@ import firebase from './fireconfig'
 import "firebase/auth";
 import "firebase/firestore";
 
-import Login from './pages/login'
+import Login from './pages/login/login'
 import Register from './pages/Register'
 import Garcom from './pages/garçom/garcom'
 import Cozinha from './pages/cozinha/cozinha'

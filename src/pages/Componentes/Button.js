@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import './button.css'
 
-function Botao(props) {
+function Button(props) {
 
     return (
-        <Button onClick={props.onClick}>{props.children}</Button>
+        <button className='btn' onClick={props.onClick}>{props.children}</button>
     );
   }
   
-  export default Botao;
+  export default Button;
