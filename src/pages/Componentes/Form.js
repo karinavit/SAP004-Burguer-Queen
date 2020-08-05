@@ -56,6 +56,7 @@ function ActionLink() {
         
             return (
                 <form>
+                  <h2>Login</h2>
                         <p>
                             <Input placeholder="Email" 
                             value={email} onChange={e=> setEmail(e.target.value)}
