@@ -13,8 +13,7 @@ function Garcom() {
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data().breakfast); 
+           console.log(doc.id, " => ", doc.data().breakfast); 
             //doc.data() imprime o menu completo
         });
     })
