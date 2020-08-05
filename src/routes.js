@@ -29,15 +29,17 @@ import Cozinha from './pages/cozinha/cozinha'
 const PrivateRoute = ({ component: Component, ...rest } ) => (
   <Route
     {...rest}
-    render={props =>
-    firebase.auth().currentUser ? (
-
+    render={props => {
+      console.log(firebase.auth().currentUser)
+      return firebase.auth().currentUser ? (
+      
         <Component {...props} />
       ) : (
         <Redirect to={{ pathname: "/"}} />
-        
-        
+                
       )
+    }
+    
     }
   />
 ); 
