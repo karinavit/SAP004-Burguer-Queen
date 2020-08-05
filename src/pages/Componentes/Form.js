@@ -1,5 +1,6 @@
 import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Input from './Input/Input';
 import Button from './Button';
 import firebase from '../../fireconfig.js';
@@ -68,6 +69,7 @@ function ActionLink() {
                             />
                         </p>
                     <Button onClick={e=> login(e)}>Logar</Button>
+                    <label type="button">Ainda não tem cadastro? Clique <Link to="/cadastro">aqui</Link></label>
                     
                 </form>
                  

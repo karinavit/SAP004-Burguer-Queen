@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom'
 import Input from './Input/Input';
 import Button from './Button';
 import firebase from '../../fireconfig.js';
@@ -52,7 +53,7 @@ function FormCad() {
             <Input type="radio" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
             <Input type="radio" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
             <Button onClick={e=> register(e)}>Cadastrar</Button>
-            <Button>Voltar</Button>
+            <Button><Link to="/">Voltar</Link></Button>
         </form>
       </>
     );
