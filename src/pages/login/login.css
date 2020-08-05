@@ -12,6 +12,7 @@
 
 .box{
     background-color: #C0C0C0;
+    box-shadow:inset 0px 3px 3px 0px #e3f1e3;
     display: flex;
     position: relative;
     padding: 20px;

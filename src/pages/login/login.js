@@ -5,6 +5,7 @@ import Logo from '../Componentes/Logo/Logo'
 import './login.css'
 
 function Login() {
+   // const [cadastro, setCadastro] = React.useState('')
 
     return (
         <>
