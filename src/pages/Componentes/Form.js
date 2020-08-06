@@ -2,7 +2,7 @@ import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Input from './Input/Input';
-import Button from './Button';
+import Button from './Button/Button';
 import './form.css'
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'

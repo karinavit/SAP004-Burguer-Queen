@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import Input from './Input/Input';
-import Button from './Button';
+import Button from './Button/Button';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth';
 import 'firebase/firestore';
