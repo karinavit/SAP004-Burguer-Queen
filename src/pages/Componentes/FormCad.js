@@ -45,8 +45,8 @@ function FormCad() {
 
     return (
       <>
-        <form>
-
+        <form className='form-login'>
+        <h2>Cadastro</h2>
             <Input placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
             <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
             <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>

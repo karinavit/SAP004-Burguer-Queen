@@ -60,7 +60,7 @@ import 'firebase/firestore'
                         </p>
                     <Button onClick={e=> login(e)}>Logar</Button>
                     <p>
-                    <label type="button">Ainda não tem cadastro? <Link to="/cadastro">Cadastra-se aqui</Link></label>
+                    <label type="button">Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se aqui</Link></label>
                     </p>
                     
                 </form>

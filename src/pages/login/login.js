@@ -16,10 +16,8 @@ function Login() {
         <div className='logo-img'>
             <Logo />
         </div>
-        <div className='box'>
-        <div className="form">
+        <div className='form box'>
         <Form />   
-        </div>
         </div>
         </div>
         </>
