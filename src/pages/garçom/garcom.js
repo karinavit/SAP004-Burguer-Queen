@@ -19,6 +19,7 @@ function Garcom() {
         querySnapshot.forEach(function(doc) {
            const data = doc.data()
            setMenu(data)           
+
         });
     }) } , []) 
 
