@@ -47,7 +47,7 @@ function Garcom() {
         <ProductsContainer>
             <>
             {morning && menu.breakfast.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
-            {all && menu.allday.map((item) => <div className='card'>{item.item} R${item.price} <br /></div>)}
+            {all && menu.allday.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
             </>
         </ProductsContainer>
         
