@@ -10,34 +10,47 @@ import ProductsContainer from "../Componentes/ProductsContainer/ProductsContaine
 
 function Garcom() {
     const [menu, setMenu] = useState ()
+    const [morning, setMorning] = useState (false)
+    const [all, setAll] = useState (false)
+    
     useEffect( () => { firebase.firestore().collection("menu")
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
            const data = doc.data()
-           setMenu(data)            //doc.data() imprime o menu completo
+           setMenu(data)           
+
         });
     }) } , []) 
 
-   const morningMenu = (e) => {
-    e.preventDefault()
-      
-   
-    
-
-    }
-     
+   /*  const morningMenu = (e) => {
+        e.preventDefault()
+        menu?(menu.breakfast.map(item => item.item)):null
+        } */
+        //{menu?(menu.breakfast.map(item => item.item)):null}
+        //{morning && menu.breakfast.filter((item)=>item.breakfast=== true).map((item)=><div className='card'>{item.item} {item.value} <br /></div>)}
+        function openBreakfast(){
+            setMorning(true)
+            setAll(false)
+          }
+          function openAllDay(){
+            setMorning(false)
+            setAll(true)
+          }  
     return (
         <>
         <Input placeholder="Cliente"></Input>
         <Input placeholder="Nº da Mesa"></Input>
         <p>
-        <Buttonmenu onClick={e=> morningMenu(e)}> Café da Manhã </Buttonmenu>
-        <Buttonmenu> Todo o dia </Buttonmenu>
+        <Buttonmenu onClick={openBreakfast}> Café da Manhã </Buttonmenu>
+        <Buttonmenu onClick={openAllDay}> Todo o dia </Buttonmenu>
         </p>
-        <ProductsContainer><>{
-            menu?(menu.breakfast.map(item => item.item)):null
-        } </></ProductsContainer>
+        <ProductsContainer>
+            <>
+            {morning && menu.breakfast.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
+            {all && menu.allday.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
+            </>
+        </ProductsContainer>
         
         </>
     );

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import Input from './Input/Input';
-import Button from './Button';
+import Button from './Button/Button';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -45,8 +45,8 @@ function FormCad() {
 
     return (
       <>
-        <form>
-
+        <form className='form-login'>
+        <h2>Cadastro</h2>
             <Input placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
             <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
             <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
