@@ -2,23 +2,13 @@ import React from '../../../node_modules/react';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Input from './Input/Input';
-import Button from './Button';
+import Button from './Button/Button';
+import './form.css'
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'
 import 'firebase/firestore'
 
 
-/* essa já era uma funcion comentada 
-function ActionLink() {
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('O link foi clicado.');
-    } */
-
-        /* const cadastro = () => {
-          firebase.auth().createUserWithEmailAndPassword(email, pass).then(user => {
-            console.log(user)
-          }) */
 
 
           function Form() { 
@@ -56,7 +46,7 @@ function ActionLink() {
            
         
             return (
-                <form>
+                <form className='form-login'>
                   <h2>Login</h2>
                         <p>
                             <Input placeholder="Email" 
@@ -69,7 +59,9 @@ function ActionLink() {
                             />
                         </p>
                     <Button onClick={e=> login(e)}>Logar</Button>
-                    <label type="button">Ainda não tem cadastro? Clique <Link to="/cadastro">aqui</Link></label>
+                    <p>
+                    <label type="button">Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se aqui</Link></label>
+                    </p>
                     
                 </form>
                  
