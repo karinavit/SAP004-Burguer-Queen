@@ -10,34 +10,36 @@ import ProductsContainer from "../Componentes/ProductsContainer/ProductsContaine
 
 function Garcom() {
     const [menu, setMenu] = useState ()
+    const [morning, setMorning] = useState ()
+    
     useEffect( () => { firebase.firestore().collection("menu")
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
            const data = doc.data()
-           setMenu(data)            //doc.data() imprime o menu completo
+           setMenu(data)           
         });
     }) } , []) 
 
-   const morningMenu = (e) => {
-    e.preventDefault()
-      
-   
-    
+    const morningMenu = (e) => {
+        e.preventDefault()
+        menu?(menu.breakfast.map(item => item.item)):null
+        }
 
-    }
      
     return (
         <>
         <Input placeholder="Cliente"></Input>
         <Input placeholder="Nº da Mesa"></Input>
         <p>
-        <Buttonmenu onClick={e=> morningMenu(e)}> Café da Manhã </Buttonmenu>
+        <Buttonmenu value={morning} onChange={e=> setMorning(e.target.value)}> Café da Manhã </Buttonmenu>
         <Buttonmenu> Todo o dia </Buttonmenu>
         </p>
-        <ProductsContainer><>{
-            menu?(menu.breakfast.map(item => item.item)):null
-        } </></ProductsContainer>
+        <ProductsContainer>
+            <>
+            {morningMenu}
+            </>
+        </ProductsContainer>
         
         </>
     );
