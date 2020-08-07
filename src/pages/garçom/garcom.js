@@ -5,6 +5,7 @@ import firebase from '../../fireconfig.js';
 import 'firebase/auth'
 import 'firebase/firestore';
 import ProductsContainer from "../Componentes/ProductsContainer/ProductsContainer";
+import './garcom.css'; 
 
 
 
@@ -47,8 +48,11 @@ function Garcom() {
         </p>
         <ProductsContainer>
             <>
-            {morning && menu.breakfast.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
-            {all && menu.allday.map((item) => <div className='card'>{item.item} <br /> R${item.price} <br /></div>)}
+            {morning && menu.breakfast.map((item) => <div className='card'> 
+            <img className='product' src={item.img} alt="" /> <p>{item.item}</p> <br /> R${item.price} <br /></div>)}
+            {all && menu.allday.map((item) => <div className='card'> 
+            <img className='product' src={item.img} alt=""  />
+            <p>{item.item}</p> <br /> R${item.price} <br /></div>)}
             </>
         </ProductsContainer>
         
