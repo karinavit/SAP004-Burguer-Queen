@@ -1,5 +1,4 @@
 import React from 'react';
-//import { isAuthenticated } from "./auth"
 import {BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import firebase from './fireconfig'
 import "firebase/auth";
@@ -7,7 +6,7 @@ import "firebase/firestore";
 
 import Login from './pages/login/login'
 import Register from './pages/Register'
-import Garcom from './pages/garçom/garcom'
+import HeadBody from './pages/Componentes/Header/HeadBody'
 import Cozinha from './pages/cozinha/cozinha'
 
 
@@ -56,7 +55,7 @@ const Routes = () => (
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/cadastro" component={Register} />
-        <PrivateRoute path="/garcom" component={Garcom}/>
+        <PrivateRoute path="/garcom" component={HeadBody}/>
         <PrivateRoute path="/cozinha" component={Cozinha} />
       </Switch>
     </BrowserRouter>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Image from '../Componentes/ImagemFundo/ImagemFundo'
+//import Image from '../Componentes/ImagemFundo/ImagemFundo'
 import Buttonmenu from "../../pages/Componentes/Buttonmenu";
 import Input from "../Componentes/Input/Input";
-import Header from '../Componentes/Header/Header'
+//import Header from '../Componentes/Header/Header'
 import ProductsContainer from "../Componentes/ProductsContainer/ProductsContainer";
 import firebase from '../../fireconfig.js';
 import 'firebase/auth'
@@ -38,12 +38,7 @@ function Garcom() {
         setRequest(item.item)
     }  */   
     return (
-        <>
-        <div className='container'>
-            <Header className='header'/>
-            <div>
-            <Image />
-            </div>
+        <>    
          <form className='input-request'>
             <Input placeholder="Cliente"></Input>
             <Input placeholder="Nº da Mesa"></Input>
@@ -64,7 +59,6 @@ function Garcom() {
         {/* <div>
          {request && menu.map((item) => <p>{item.item}</p>)} 
         </div> */}
-        </div>
         </>
     );
     }
