@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
-//import Image from '../Componentes/ImagemFundo/ImagemFundo'
-import ButtonIn from "../../pages/Componentes/ButtonIn/ButtonIn";
-import Input from "../Componentes/Input/Input";
-//import Header from '../Componentes/Header/Header'
-import ProductsContainer from "../Componentes/ProductsContainer/ProductsContainer";
-import firebase from '../../fireconfig.js';
-import 'firebase/auth'
-import 'firebase/firestore';
+import React from "react";
 import './garcom.css'; 
+import Header from '../Componentes/Header/Header'
+import ProductsContainer from '../Componentes/ProductsContainer/ProductsContainer'
 
-function Garcom() {
+function Garcom(){
+
+    return (
+        <>
+        <Header link1='Pedidos Prontos' link2='Novo Pedido'/>
+        <ProductsContainer />
+        </>
+    )}
+  
+  export default Garcom;
+
+/* function Garcom() {
     const [menu, setMenu] = useState ()
     const [morning, setMorning] = useState (false)
     const [all, setAll] = useState (false)
@@ -34,9 +39,9 @@ function Garcom() {
         setAll(true)
         }
         
-    /* function newRequest(item){
+    function newRequest(item){
         setRequest(item.item)
-    }  */   
+    }   
     return (
         <>    
          <form className='input-request'>
@@ -56,12 +61,12 @@ function Garcom() {
             <p>{item.item}</p> <br /> R${item.price} <br /></div>)}
             </>
         </ProductsContainer>
-        {/* <div>
+        <div>
          {request && menu.map((item) => <p>{item.item}</p>)} 
-        </div> */}
+        </div>
         </>
     );
     }
 
     
-  export default Garcom;
+  export default Garcom; */

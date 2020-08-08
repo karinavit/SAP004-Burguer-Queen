@@ -6,7 +6,7 @@ import "firebase/firestore"; */
 
 import Login from './pages/login/login'
 import Register from './pages/Register'
-import HeadBody from './pages/Componentes/Header/HeadBody'
+import Garcom from './pages/garçom/garcom'
 import Cozinha from './pages/cozinha/cozinha'
 
 /* const PrivateRoute = ({ component: Component, ...rest } ) => (
@@ -33,7 +33,7 @@ const Routes = () => (
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/cadastro" component={Register} />
-        <Route path="/garcom" component={HeadBody}/>
+        <Route path="/garcom" component={Garcom}/>
         <Route path="/cozinha" component={Cozinha} />
       </Switch>
     </BrowserRouter>
