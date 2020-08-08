@@ -1,16 +1,6 @@
-*{
+/* *{
   margin: 0;
   padding: 0;
-}
-
-.container{
-  display: flex;
-  position: relative;
-  justify-content: center;
-}
-
-.header{
-  position: absolute;
 }
 
 .input-request{
@@ -22,4 +12,4 @@
 .product {
   width: 150px;
   height: 125px;
-}
+} */

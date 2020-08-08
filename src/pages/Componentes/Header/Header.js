@@ -1,13 +1,18 @@
 import React from 'react';
 import './header.css'
-//import Logo from '../Logo/Logo'
+import LogoHeader from '../LogoHeader/LogoHeader'
+import Button from '../Button/Button'
 
 function Header(props) {
 
     return (
-        <header className={props.className}>
-            
-            {props.children}</header>
+            <header className='header'>
+                <LogoHeader />
+                <Button>{props.link1}</Button>
+                <Button>{props.link2}</Button>
+                <Button>Sair</Button>
+
+            </header>
     );
   }
   

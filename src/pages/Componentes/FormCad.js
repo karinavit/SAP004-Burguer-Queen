@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import Input from './Input/Input';
+import Radio from './Radio/Radio'
 import Button from './Button/Button';
 import firebase from '../../fireconfig.js';
 import 'firebase/auth';
@@ -50,8 +51,8 @@ function FormCad() {
             <Input placeholder="Nome" value={name} onChange={e=> setName(e.target.value)}/>  
             <Input placeholder="Email" value={email} onChange={e=> setEmail(e.target.value)}/>  
             <Input type="password" placeholder="Senha" value={pass} onChange={e=> setPass(e.target.value)}/>
-            <Input type="radio" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
-            <Input type="radio" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <Radio type="radio" text="Salão" value="salão" name='cargo' onChange={e=> setCargo(e.target.value)}/>
+            <Radio type="radio" text="Cozinha" value="cozinha" name='cargo' onChange={e=> setCargo(e.target.value)}/>
             <Button onClick={e=> register(e)}>Cadastrar</Button>
             <Button><Link to="/">Voltar</Link></Button>
         </form>
