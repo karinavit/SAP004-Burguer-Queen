@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '../Componentes/Form'
-import Logo from '../Componentes/Logo/Logo'
+import Logo from '../Componentes/LogoInicio/Logo'
 import './login.css'
 
 function Login() {

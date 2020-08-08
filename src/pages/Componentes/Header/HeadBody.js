@@ -7,7 +7,7 @@ function HeadBody() {
 
     return (
         <>
-        <Header link1='Pedidos Prontos'/>
+        <Header link1='Pedidos Prontos' link2='Novo Pedido'/>
         
         <Garcom />
         

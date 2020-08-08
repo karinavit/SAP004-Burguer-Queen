@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 //import Image from '../Componentes/ImagemFundo/ImagemFundo'
-import Buttonmenu from "../../pages/Componentes/Buttonmenu";
+import ButtonIn from "../../pages/Componentes/ButtonIn/ButtonIn";
 import Input from "../Componentes/Input/Input";
 //import Header from '../Componentes/Header/Header'
 import ProductsContainer from "../Componentes/ProductsContainer/ProductsContainer";
@@ -44,8 +44,8 @@ function Garcom() {
             <Input placeholder="Nº da Mesa"></Input>
         </form>   
         <p>
-        <Buttonmenu onClick={openBreakfast}> Café da Manhã </Buttonmenu>
-        <Buttonmenu onClick={openAllDay}> Todo o dia </Buttonmenu>
+        <ButtonIn onClick={openBreakfast}> Café da Manhã </ButtonIn>
+        <ButtonIn onClick={openAllDay}> Todo o dia </ButtonIn>
         </p>
         <ProductsContainer>
             <>
