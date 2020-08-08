@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Buttonmenu from "../../pages/Componentes/Buttonmenu";
-import Input from "../Componentes/Input/Input";
-import firebase from '../../fireconfig.js';
-import 'firebase/auth'
-import 'firebase/firestore';
-import ProductsContainer from "../Componentes/ProductsContainer/ProductsContainer";
+import React from "react";
 import './garcom.css'; 
+import Header from '../Componentes/Header/Header'
+import ProductsContainer from '../Componentes/ProductsContainer/ProductsContainer'
 
+function Garcom(){
 
+    return (
+        <>
+        <Header link1='Pedidos Prontos' link2='Novo Pedido'/>
+        <ProductsContainer />
+        </>
+    )}
+  
+  export default Garcom;
 
-function Garcom() {
+/* function Garcom() {
     const [menu, setMenu] = useState ()
     const [morning, setMorning] = useState (false)
     const [all, setAll] = useState (false)
+    //const [request, setRequest] = useState ([])
     
     useEffect( () => { firebase.firestore().collection("menu")
     .get()
@@ -24,27 +30,27 @@ function Garcom() {
         });
     }) } , []) 
 
-   /*  const morningMenu = (e) => {
-        e.preventDefault()
-        menu?(menu.breakfast.map(item => item.item)):null
-        } */
-        //{menu?(menu.breakfast.map(item => item.item)):null}
-        //{morning && menu.breakfast.filter((item)=>item.breakfast=== true).map((item)=><div className='card'>{item.item} {item.value} <br /></div>)}
-        function openBreakfast(){
-            setMorning(true)
-            setAll(false)
-          }
-          function openAllDay(){
-            setMorning(false)
-            setAll(true)
-          }  
+  function openBreakfast(){
+        setMorning(true)
+        setAll(false)
+        }
+    function openAllDay(){
+        setMorning(false)
+        setAll(true)
+        }
+        
+    function newRequest(item){
+        setRequest(item.item)
+    }   
     return (
-        <>
-        <Input placeholder="Cliente"></Input>
-        <Input placeholder="Nº da Mesa"></Input>
+        <>    
+         <form className='input-request'>
+            <Input placeholder="Cliente"></Input>
+            <Input placeholder="Nº da Mesa"></Input>
+        </form>   
         <p>
-        <Buttonmenu onClick={openBreakfast}> Café da Manhã </Buttonmenu>
-        <Buttonmenu onClick={openAllDay}> Todo o dia </Buttonmenu>
+        <ButtonIn onClick={openBreakfast}> Café da Manhã </ButtonIn>
+        <ButtonIn onClick={openAllDay}> Todo o dia </ButtonIn>
         </p>
         <ProductsContainer>
             <>
@@ -55,23 +61,12 @@ function Garcom() {
             <p>{item.item}</p> <br /> R${item.price} <br /></div>)}
             </>
         </ProductsContainer>
-        
+        <div>
+         {request && menu.map((item) => <p>{item.item}</p>)} 
+        </div>
         </>
     );
     }
 
     
-  export default Garcom;
-
-
-
-
-
-
-  /* const allmenu = (e) => {
-    e.preventDefault()
-    firebase
-    .firestore().collection("menu").get()
-    .then((snapshot) =>{ snapshot.docs.forEach((doc)=> {
-        console.log(doc.data())
-    }) */
+  export default Garcom; */

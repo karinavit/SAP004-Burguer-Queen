@@ -1,4 +1,15 @@
+/* *{
+  margin: 0;
+  padding: 0;
+}
+
+.input-request{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
 .product {
   width: 150px;
   height: 125px;
-}
+} */
