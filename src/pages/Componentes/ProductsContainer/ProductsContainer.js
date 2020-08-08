@@ -8,10 +8,10 @@ import 'firebase/firestore';
 
 
 function ProductsContainer() {
-  const [menu, setMenu] = useState ()
+const [menu, setMenu] = useState ()
 const [morning, setMorning] = useState (false)
 const [all, setAll] = useState (false)
-//const [request, setRequest] = useState ([])
+const [orders, setOrders] = useState([]);
 
 useEffect( () => { firebase.firestore().collection("menu")
 .get()
@@ -31,6 +31,13 @@ function openAllDay(){
   setMorning(false)
   setAll(true)
   }
+  function newRequest(item){
+    console.log(item)
+    setOrders([...orders, item]);
+
+};    
+
+
   return (
     <>
     <form className='input-request'>
@@ -44,7 +51,8 @@ function openAllDay(){
     <div className="pr-container">
         <div>
             {morning && menu.breakfast.map((item) => 
-            <div className='card'> 
+            <div className='card' onClick={() => 
+              newRequest(item)}> 
             <img className='product' src={item.img} alt="" />
             <div className='product-name'>
             <h3>{item.item}</h3> <br/> 
@@ -53,7 +61,8 @@ function openAllDay(){
             </div>)}
 
             {all && menu.allday.map((item) => 
-            <div className='card'> 
+            <div className='card' onClick={() => 
+              newRequest(item)}>  
             <img className='product' src={item.img} alt=""  />
             <div className='product-name'>
             <h3>{item.item}</h3> <br/> 
@@ -63,6 +72,13 @@ function openAllDay(){
         </div>    
 
     </div>
+    <div> Comanda
+         {orders && orders.map((item) => (
+            <div>
+              <li>{item.item} R${item.price}</li>
+            </div>
+         ))
+         }</div>
     </>
 )}
 

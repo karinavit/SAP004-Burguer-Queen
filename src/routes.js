@@ -6,7 +6,7 @@ import "firebase/firestore"; */
 
 import Login from './pages/login/login'
 import Register from './pages/Register'
-import Garcom from './pages/garçom/garcom'
+import Garcom from './pages/garçom/garcom';
 import Cozinha from './pages/cozinha/cozinha'
 
 /* const PrivateRoute = ({ component: Component, ...rest } ) => (
