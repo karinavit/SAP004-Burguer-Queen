@@ -1,5 +1,27 @@
-.pr-container {
+.input-request{
+  margin: 15px;
+}
+
+.btn-request{
+  margin: 10px;
+}
+/* .card{
+  background-color: #c0c0c0;
+  
+} */
+.product {
+  width: 150px;
+  height: 125px;
+}
+
+.product-name{
+  background-color: #c0c0c0;
+  width: 150px;
+  height: 125px;
+}
+
+/* .pr-container {
   background-color: #c0c0c0;
   height: 300px;
   width: 300px;  
-}
+} */

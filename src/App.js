@@ -1,6 +1,5 @@
 /* import React from 'react';
 
-//import './App.css';
 
 function App() {
   return (
@@ -14,7 +13,7 @@ export default App; */
 
   
 import React from "react";
-
+import './App.css';
 import Routes from "./routes";
 
 const App = () => <Routes />;
