@@ -12,12 +12,14 @@
 .product {
   width: 150px;
   height: 125px;
+  pointer-events: none;
 }
 
 .product-name{
   background-color: #c0c0c0;
   width: 150px;
   height: 125px;
+  pointer-events: none;
 }
 
 /* .pr-container {
