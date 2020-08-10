@@ -40,10 +40,25 @@ function openAllDay(){
   setAll(true)
   }
   
-  function newRequest(item) {
+  function newRequest(e, item) {
     setContar((contar + 1));
-    setOrders([...orders, item, contar]);
+    item.contar = contar
+    setOrders([item]);
+    let array = [];
+    if(orders){
+      orders.map(produto=>{
+        if(produto.item === produto.item){setContar(contar)}
+      } 
+        
+      )
+      
+    }
+    
+    
+    console.log(orders)
   }
+  
+  
 
 //fazer a adição de produtos antes de excluir
 
@@ -122,8 +137,8 @@ const sendOrder = (e) => {
     <div className="pr-container">
         <div>
             {morning && menu.breakfast.map((item) => 
-            <div className='card' onClick={() => 
-              newRequest(item)}> 
+            <div className='card' onClick={(e) => 
+              newRequest(e, item)}> 
             <img className='product' src={item.img} alt="" />
             <div className='product-name'>
             <h3>{item.item}</h3> <br/> 
@@ -132,8 +147,8 @@ const sendOrder = (e) => {
             </div>)}
 
             {all && menu.allday.map((item) => 
-            <div className='card' onClick={() => 
-              newRequest(item)}>  
+            <div className='card' onClick={(e) => 
+              newRequest(e, item)}>  
             <img className='product' src={item.img} alt=""  />
             <div className='product-name'>
             <h3>{item.item}</h3> <br/> 
@@ -145,14 +160,14 @@ const sendOrder = (e) => {
     </div>
 
     <div> Comanda </div>
-      <ul>
+      {/* <ul>
          {orders && orders.map((item, index) => (
             <li key={index}>
               <p>{item.item} R${item.price}</p>
               <p onClick={() => deleteItem(item)}>X</p>
             </li>
             ))}
-            </ul>
+            </ul> */}
             <Button onClick={sendOrder}>Enviar Pedido</Button>
             
          
