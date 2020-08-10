@@ -13,7 +13,7 @@ const [menu, setMenu] = useState ()
 const [morning, setMorning] = useState (false)
 const [all, setAll] = useState (false)
 const [orders, setOrders] = useState([]);
-//const [contar, setContar] = useState(0)
+const [contar, setContar] = useState(1)
 //const [menuItem , setExtras] = useState([]);
 
 const [name,setName ] = useState("");
@@ -41,18 +41,37 @@ function openAllDay(){
   }
   
   function newRequest(item) {
-    console.log(item)
-    //setContar((contar + 1))
-    setOrders([...orders, item]);
-  
-  
+    setContar((contar + 1));
+    setOrders([...orders, item, contar]);
   }
 
+//fazer a adição de produtos antes de excluir
+
+
 const deleteItem = (product) => {
-  product.unit --
-  const remove = orders.filter(el => el.unit > 0);
-  setOrders([...remove]);
-}
+  product.contar --
+  const remove = orders.filter(el => el.contar);
+  setOrders([remove]);
+  console.log(product)
+} 
+
+
+//função da Evellyn
+/* const deleteItem = (event, name) => { event.preventDefault(); 
+  let result = itens.findIndex((item) => item.name === name);
+   console.log(result); if (itens[result].count > 1) { itens[result].count--; 
+    setNameItens([...itens]); }
+     else { const newItens = itens.filter((item, index) => index !== result);
+       setNameItens(newItens); } 
+      };  
+
+      const customerRequest = (event, name, price) => { event.preventDefault(); 
+        let result = itens.findIndex((item) => item.name === name); 
+        if (result >= 0) { let list = itens; list[result].count++;
+           setNameItens([...list]); }
+            else { setNameItens([ ...itens, { name, price, count, }, ]); } }; */
+
+    
 
 //const bill = () => order.reduce((acc, bill)=> acc + (bill.price * bill.unit), 0)
 
@@ -66,7 +85,7 @@ const sendOrder = (e) => {
       .set({                
           name: name,
           table: parseInt(table),
-          //orders,
+          orders: orders,
           //total,
       }) 
       .then(() => {
@@ -126,17 +145,17 @@ const sendOrder = (e) => {
     </div>
 
     <div> Comanda </div>
-      <div>
-         {orders && orders.map((item) => (
-            <div>
-              <li>{item.item} R${item.price}</li>
-              <p onClick={deleteItem}>X</p>
-            </div>
+      <ul>
+         {orders && orders.map((item, index) => (
+            <li key={index}>
+              <p>{item.item} R${item.price}</p>
+              <p onClick={() => deleteItem(item)}>X</p>
+            </li>
             ))}
-            
+            </ul>
             <Button onClick={sendOrder}>Enviar Pedido</Button>
             
-         </div>
+         
          </>
   )
 }
