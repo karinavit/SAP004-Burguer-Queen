@@ -1,0 +1,11 @@
+.card-pedido{
+    background-color: #C0C0C0;
+    box-shadow: inset 0px 3px 3px 0px #e3f1e3;
+    margin: 10px;
+    display: flex;
+    width: 200px;
+    height: 300px;
+    border: 5px solid #228B22;
+    justify-content: center;
+    
+}
