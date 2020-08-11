@@ -12,7 +12,7 @@ function ProductsContainer() {
   const [morning, setMorning] = useState(false);
   const [all, setAll] = useState(false);
   const [orders, setOrders] = useState([]);
-  
+
   //const [menuItem , setExtras] = useState([]);
 
   const [name, setName] = useState("");
@@ -47,18 +47,16 @@ function ProductsContainer() {
     setOrders([...orders, item]);
   } */
 
-   function newRequest(item) {
-    const indexOrder = orders.findIndex((order) => order.item === item.item)
-    if(indexOrder === -1){
-      setOrders([...orders, {...item,count:1}])
-    }else{
-      orders[indexOrder].count ++
+  function newRequest(item) {
+    const indexOrder = orders.findIndex((order) => order.item === item.item);
+    if (indexOrder === -1) {
+      setOrders([...orders, { ...item, count: 1 }]);
+    } else {
+      orders[indexOrder].count++;
       setOrders([...orders]);
-      console.log(orders)
+      console.log(orders);
     }
-    
-    
-  } 
+  }
 
   const deleteItem = (product) => {
     const remove = orders.filter((el) => el.item !== product.item);
@@ -66,7 +64,7 @@ function ProductsContainer() {
     console.log(product);
   };
 
-   //const bill = () => order.reduce((acc, bill)=> acc + (bill.price * bill.unit), 0)
+  //const bill = () => order.reduce((acc, bill)=> acc + (bill.price * bill.unit), 0)
 
   const sendOrder = (e) => {
     e.preventDefault();
