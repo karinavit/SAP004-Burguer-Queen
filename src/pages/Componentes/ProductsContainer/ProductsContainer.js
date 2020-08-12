@@ -13,12 +13,9 @@ function ProductsContainer() {
   const [morning, setMorning] = useState(false);
   const [all, setAll] = useState(false);
   const [orders, setOrders] = useState([]);
-
-  //const [menuItem , setExtras] = useState([]);
-
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
-  //const [total, setTotal] = useState();
+  
 
   useEffect(() => {
     firebase
@@ -41,24 +38,6 @@ function ProductsContainer() {
     setAll(true);
   }
 
-  /* essa era a nossa função antiga de newrequest
-  function newRequest(item) {
-    console.log(item);
-    //setContar((contar + 1))
-    setOrders([...orders, item]);
-  } */
-
-  /* function newRequest(item) {
-    const indexOrder = orders.findIndex((order) => order.item === item.item);
-    if (indexOrder === -1) {
-      setOrders([...orders, { ...item, count: 1 }]);
-    } else {
-      orders[indexOrder].count++;
-      setOrders([...orders]);
-      console.log(orders);
-    }
-  }
- */
   function newRequest(item, operacao) {
 		const indexOrder = orders.findIndex((order) => order.item === item.item);
     if (indexOrder === -1) {
@@ -132,7 +111,7 @@ function ProductsContainer() {
         <ButtonIn onClick={openAllDay}> Todo o dia </ButtonIn>
       </div>
       <div className="pr-container">
-        <div>
+        <div className='card-list'>
           {morning &&
             menu.breakfast.map((item) => (
               <div className="card" onClick={() => newRequest(item)}>
@@ -154,49 +133,41 @@ function ProductsContainer() {
               </div>
             ))}
         </div>
-      </div>
-
-     {/*  <div> Comanda </div>
-      <div>
-        {orders &&
-          orders.map((item) => (
-            <div>
-              <BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>{item.count}<BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
-              <li>
-                {item.item} R${item.price}
-              </li>
-              <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
-            </div>
-          ))}
-        <span>Total: R$ {bill},00</span>
-        <Button onClick={sendOrder}>Enviar Pedido</Button>
-      </div> */}
-      <table>
+        <table cellspacing='20px'>
   <thead>      
   <tr>
-    <th>Qtd.</th>
-    <th>Produto</th> 
-    <th>Valor</th>
+    <th align='center'>Qtd.</th>
+    <th align='center'>Produto</th> 
+    <th align='center'>Valor</th>
   </tr>
   </thead>
   <tbody>
   {orders &&
           orders.map((item) => (
   <tr>
-    <td><BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>
-        <p>{item.count}</p>
+    <td align='center'><BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>
+        {item.count}
         <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
     </td>
-    <td>{item.item}</td>
-    <td>R$ {item.price}</td>
-    <td>
+    <td align='center'>{item.item}</td>
+    <td align='center'>R$ {item.price}</td>
+    <td align='center'>
       <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
     </td>
   </tr>))}
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan='4' align='right' >Total: R$ {bill},00</td>
+    </tr>
+    <tr>
+    <td colspan='4' align='center'><Button onClick={sendOrder}>Enviar Pedido</Button></td>
+    </tr>
+  </tfoot>
 </table>
-<span>Total: R$ {bill},00</span>
-<Button onClick={sendOrder}>Enviar Pedido</Button>
+
+      </div>
+      
     </>
   );
 }

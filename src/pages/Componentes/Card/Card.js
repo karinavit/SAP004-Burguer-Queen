@@ -31,18 +31,18 @@ function Card() {
                 <h4>Nº da Mesa: {item.table}</h4>
                 <h4>Atendente: {item.waiter}</h4>
                 </div>
-                <table>
+                <table cellspacing='15px'> 
                   <thead>
                   <tr>
-                    <th>Qtd.</th>
-                    <th>Produto</th>
+                    <th align='center'>Qtd.</th>
+                    <th align='center'>Produto</th>
                   </tr>
                   </thead>
                   <tbody>
                   {item.orders.map((product)=>(
                   <tr>
-                    <td>{product.count}</td>
-                    <td>{product.item}</td>
+                    <td align='center'>{product.count}</td>
+                    <td align='center'>{product.item}</td>
                   </tr>))}
                   </tbody>
                 </table>
