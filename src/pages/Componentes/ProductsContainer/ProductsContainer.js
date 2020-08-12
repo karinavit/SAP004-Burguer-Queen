@@ -6,6 +6,7 @@ import firebase from "../../../fireconfig";
 import "firebase/auth";
 import "firebase/firestore";
 import Button from "../Button/Button";
+import BtnItem from '../BtnItem/BtnItem'
 
 function ProductsContainer() {
   const [menu, setMenu] = useState();
@@ -47,7 +48,7 @@ function ProductsContainer() {
     setOrders([...orders, item]);
   } */
 
-  function newRequest(item) {
+  /* function newRequest(item) {
     const indexOrder = orders.findIndex((order) => order.item === item.item);
     if (indexOrder === -1) {
       setOrders([...orders, { ...item, count: 1 }]);
@@ -57,14 +58,29 @@ function ProductsContainer() {
       console.log(orders);
     }
   }
-
+ */
+  function newRequest(item, operacao) {
+		const indexOrder = orders.findIndex((order) => order.item === item.item);
+    if (indexOrder === -1) {
+      setOrders([...orders, { ...item, count: 1 }]);
+		}
+		else {
+			let quant = orders[indexOrder].count;
+			quant = operacao === 1? quant+1 : quant-1;
+			orders[indexOrder].count = quant;
+      setOrders([...orders]);
+		}
+  }
+  
   const deleteItem = (product) => {
     const remove = orders.filter((el) => el.item !== product.item);
     setOrders(remove);
     console.log(product);
   };
 
-  //const bill = () => order.reduce((acc, bill)=> acc + (bill.price * bill.unit), 0)
+  const bill = orders.reduce((acumulador, itemAtual)=>{
+		return acumulador + (itemAtual.price * itemAtual.count)
+	},0)
 
   const sendOrder = (e) => {
     e.preventDefault();
@@ -74,14 +90,16 @@ function ProductsContainer() {
         .collection("orders")
         .doc()
         .set({
+          id: firebase.auth().currentUser.uid,
+          waiter: firebase.auth().currentUser.displayName,
           name: name,
           table: parseInt(table),
           orders: orders,
-          //total,
+          total: bill,
+          time: new Date().toLocaleString('pt-BR')
         })
         .then(() => {
           setOrders([]);
-          //setTotal(0)
           setName("");
           setTable(0);
           alert("Pedido enviado com sucesso");
@@ -138,20 +156,47 @@ function ProductsContainer() {
         </div>
       </div>
 
-      <div> Comanda </div>
+     {/*  <div> Comanda </div>
       <div>
         {orders &&
           orders.map((item) => (
             <div>
+              <BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>{item.count}<BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
               <li>
-                {item.count} {item.item} R${item.price}
+                {item.item} R${item.price}
               </li>
-              <p onClick={() => deleteItem(item)}>X</p>
+              <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
             </div>
           ))}
-
+        <span>Total: R$ {bill},00</span>
         <Button onClick={sendOrder}>Enviar Pedido</Button>
-      </div>
+      </div> */}
+      <table>
+  <thead>      
+  <tr>
+    <th>Qtd.</th>
+    <th>Produto</th> 
+    <th>Valor</th>
+  </tr>
+  </thead>
+  <tbody>
+  {orders &&
+          orders.map((item) => (
+  <tr>
+    <td><BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>
+        <p>{item.count}</p>
+        <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
+    </td>
+    <td>{item.item}</td>
+    <td>R$ {item.price}</td>
+    <td>
+      <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
+    </td>
+  </tr>))}
+  </tbody>
+</table>
+<span>Total: R$ {bill},00</span>
+<Button onClick={sendOrder}>Enviar Pedido</Button>
     </>
   );
 }
