@@ -13,12 +13,9 @@ function ProductsContainer() {
   const [morning, setMorning] = useState(false);
   const [all, setAll] = useState(false);
   const [orders, setOrders] = useState([]);
-
-  //const [menuItem , setExtras] = useState([]);
-
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
-  //const [total, setTotal] = useState();
+  
 
   useEffect(() => {
     firebase
@@ -41,24 +38,6 @@ function ProductsContainer() {
     setAll(true);
   }
 
-  /* essa era a nossa função antiga de newrequest
-  function newRequest(item) {
-    console.log(item);
-    //setContar((contar + 1))
-    setOrders([...orders, item]);
-  } */
-
-  /* function newRequest(item) {
-    const indexOrder = orders.findIndex((order) => order.item === item.item);
-    if (indexOrder === -1) {
-      setOrders([...orders, { ...item, count: 1 }]);
-    } else {
-      orders[indexOrder].count++;
-      setOrders([...orders]);
-      console.log(orders);
-    }
-  }
- */
   function newRequest(item, operacao) {
 		const indexOrder = orders.findIndex((order) => order.item === item.item);
     if (indexOrder === -1) {
@@ -186,25 +165,8 @@ function ProductsContainer() {
     </tr>
   </tfoot>
 </table>
-{/* <span>Total: R$ {bill},00</span>
-<Button onClick={sendOrder}>Enviar Pedido</Button> */}
-      </div>
 
-     {/*  <div> Comanda </div>
-      <div>
-        {orders &&
-          orders.map((item) => (
-            <div>
-              <BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>{item.count}<BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
-              <li>
-                {item.item} R${item.price}
-              </li>
-              <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
-            </div>
-          ))}
-        <span>Total: R$ {bill},00</span>
-        <Button onClick={sendOrder}>Enviar Pedido</Button>
-      </div> */}
+      </div>
       
     </>
   );

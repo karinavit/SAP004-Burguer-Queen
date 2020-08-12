@@ -26,10 +26,10 @@
 .product {
   width: 150px;
   height: 125px;
-  pointer-events: none;
+  
 }
 
-.product-name{
+/* .product-name{
   pointer-events: none;
 }
-
+ */
