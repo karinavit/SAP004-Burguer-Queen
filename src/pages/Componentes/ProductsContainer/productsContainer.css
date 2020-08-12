@@ -5,10 +5,24 @@
 .btn-request{
   margin: 10px;
 }
-/* .card{
+
+.pr-container {
+  display: flex;
+  width: 100%; 
+  justify-content: space-around; 
+}
+
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 380px;
+}
+.card{
   background-color: #c0c0c0;
-  
-} */
+  width: 150px;
+  margin: 20px;
+
+}
 .product {
   width: 150px;
   height: 125px;
@@ -16,14 +30,6 @@
 }
 
 .product-name{
-  background-color: #c0c0c0;
-  width: 150px;
-  height: 125px;
   pointer-events: none;
 }
 
-/* .pr-container {
-  background-color: #c0c0c0;
-  height: 300px;
-  width: 300px;  
-} */
