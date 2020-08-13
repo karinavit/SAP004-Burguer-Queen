@@ -8,9 +8,10 @@ import "firebase/firestore";
 
 
 function Card() {
-    const [request, setRequest] = useState();
+  const [request, setRequest] = useState();
+  const [setToPrepare] = useState([]);
 
-      useEffect(() => {
+     useEffect(() => {
         firebase
           .firestore()
           .collection('orders')
@@ -19,7 +20,24 @@ function Card() {
             item.forEach((item) => array.push(item.data()));
             setRequest(array);
           });
-      }, []);
+      }, []); 
+
+
+
+ const toDone = (e) => {
+ e.preventDefault()
+      firebase
+          .collection('orders')
+            .where('status', '==', 'Pronto')
+            .onSnapshot((querySnapshot) => {
+                const doc = querySnapshot.docs.map((doc) => ({
+                    id: doc.id, data: doc.data()
+                }));
+                setToPrepare(doc)
+            }) };
+     
+
+    
 
     return (
       <>
@@ -31,6 +49,7 @@ function Card() {
                 <h4 className='txt-header'>Cliente: {item.name}</h4>
                 <h4 className='txt-header'>Nº da Mesa: {item.table}</h4>
                 <h4 className='txt-header'>Atendente: {item.waiter}</h4>
+                <h4 className='txt-header'>Status: {item.status}</h4>
                 </div>
                 <table cellspacing='15px'> 
                   <thead>
@@ -49,7 +68,8 @@ function Card() {
                 </table>
               </div>
               <p>{item.time}</p>
-              <BtnItem>Pronto!</BtnItem>
+              
+              <BtnItem onClick={(e) => toDone(e,item)} Link to="/pedidos-prontos">Pronto!</BtnItem>
         </div>))}
         </>
     );
@@ -57,3 +77,37 @@ function Card() {
   }
 
   export default Card;
+
+  
+
+    
+
+    /* return (
+        <>
+            <Header
+                primaryLink='Em preparo'
+                primaryRoute='/kitchen'
+                secondLink='Concluídos'
+                secondRoute='/kitchen-done-orders'
+            />
+            <main className={css(styles.main)}>
+                <article className={css(styles.article, styles.flex, styles.minHeight)}>
+                    {ordersToPrepare.length !== 0
+                        ? ordersToPrepare.map(order => (
+                            <OrderCards
+                                {...order}
+                                allOrders={ordersToPrepare}
+                                key={order.id}
+                                waiter={true}
+                            />))
+                        : (
+                            <div className={css(styles.noOrders, styles.flex)}>
+                                Nenhum pedido recebido.
+                            </div>
+                        )
+                    }
+                </article>
+            </main>
+        </>
+    )
+}; */
