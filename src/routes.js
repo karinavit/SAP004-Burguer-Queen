@@ -8,6 +8,7 @@ import Login from './pages/login/login'
 import Register from './pages/Register'
 import Garcom from './pages/garçom/garcom';
 import Cozinha from './pages/cozinha/cozinha'
+import PedPronto from './pages/pedpronto';
 
 /* const PrivateRoute = ({ component: Component, ...rest } ) => (
   <Route
@@ -35,6 +36,7 @@ const Routes = () => (
         <Route path="/cadastro" component={Register} />
         <Route path="/garcom" component={Garcom}/>
         <Route path="/cozinha" component={Cozinha} />
+        <Route path="/pedidos-prontos" component={PedPronto} />
       </Switch>
     </BrowserRouter>
   );
