@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './card.css'
+import BtnItem from '../BtnItem/BtnItem'
 import firebase from "../../../fireconfig";
 import "firebase/auth";
 import "firebase/firestore";
@@ -25,11 +26,11 @@ function Card() {
       {request && request.map((item) => (
         <div className='card-pedido'>
               <div>
-                <div>
-                <h3>Pedido</h3>
-                <h4>Cliente: {item.name}</h4>
-                <h4>Nº da Mesa: {item.table}</h4>
-                <h4>Atendente: {item.waiter}</h4>
+                <div className='header-card'>
+                <h3 className='txt-header'>Pedido</h3>
+                <h4 className='txt-header'>Cliente: {item.name}</h4>
+                <h4 className='txt-header'>Nº da Mesa: {item.table}</h4>
+                <h4 className='txt-header'>Atendente: {item.waiter}</h4>
                 </div>
                 <table cellspacing='15px'> 
                   <thead>
@@ -48,6 +49,7 @@ function Card() {
                 </table>
               </div>
               <p>{item.time}</p>
+              <BtnItem>Pronto!</BtnItem>
         </div>))}
         </>
     );
