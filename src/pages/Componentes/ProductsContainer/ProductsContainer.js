@@ -15,7 +15,7 @@ function ProductsContainer() {
   const [orders, setOrders] = useState([]);
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
-  
+  const [subtracao, setSubtracao] = useState(true);
 
   useEffect(() => {
     firebase
@@ -44,12 +44,19 @@ function ProductsContainer() {
       setOrders([...orders, { ...item, count: 1 }]);
 		}
 		else {
-			let quant = orders[indexOrder].count;
-			quant = operacao === 1? quant+1 : quant-1;
-			orders[indexOrder].count = quant;
+			orders[indexOrder].count++;
       setOrders([...orders]);
 		}
   }
+
+  const subItem = (item) => {
+    const subOrder = orders.findIndex((orders) => orders.item === item.item);
+    if (item.count === 1) {
+      return (document.getElementsByName("-").disabled = true);
+    } else {
+      setSubtracao(orders[subOrder].count--);
+    }
+  };
   
   const deleteItem = (product) => {
     const remove = orders.filter((el) => el.item !== product.item);
@@ -148,7 +155,9 @@ function ProductsContainer() {
   {orders &&
           orders.map((item) => (
   <tr>
-    <td align='center'><BtnItem onClick={() => newRequest(item, 2)}>-</BtnItem>
+    <td align='center'>{subtracao && (
+                      <BtnItem name="-" onClick={() => subItem(item)}>-</BtnItem> 
+                      )}
         {item.count}
         <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
     </td>
