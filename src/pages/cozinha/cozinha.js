@@ -1,10 +1,17 @@
 import React from "react";
+import './cozinha.css'; 
+import Header from '../Componentes/Header/Header'
+import Card from '../Componentes/Card/Card'
 
+function Garcom(){
 
-function Cozinha() {
-  return (
-      <button>Pedido Pronto</button>
-  );
-}
-
-export default Cozinha;
+    return (
+        <>
+        <Header link1='Pedidos Prontos' />
+        <div className='card-cozinha'>
+        <Card />
+        </div>
+        </>
+    )}
+  
+  export default Garcom;

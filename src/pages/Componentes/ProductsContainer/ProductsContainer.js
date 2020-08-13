@@ -6,18 +6,16 @@ import firebase from "../../../fireconfig";
 import "firebase/auth";
 import "firebase/firestore";
 import Button from "../Button/Button";
+import BtnItem from '../BtnItem/BtnItem'
 
 function ProductsContainer() {
   const [menu, setMenu] = useState();
   const [morning, setMorning] = useState(false);
   const [all, setAll] = useState(false);
   const [orders, setOrders] = useState([]);
-
-  //const [menuItem , setExtras] = useState([]);
-
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
-  //const [total, setTotal] = useState();
+  const [subtracao, setSubtracao] = useState(true);
 
   useEffect(() => {
     firebase
@@ -40,31 +38,35 @@ function ProductsContainer() {
     setAll(true);
   }
 
-  /* essa era a nossa função antiga de newrequest
-  function newRequest(item) {
-    console.log(item);
-    //setContar((contar + 1))
-    setOrders([...orders, item]);
-  } */
-
-  function newRequest(item) {
-    const indexOrder = orders.findIndex((order) => order.item === item.item);
+  function newRequest(item, operacao) {
+		const indexOrder = orders.findIndex((order) => order.item === item.item);
     if (indexOrder === -1) {
       setOrders([...orders, { ...item, count: 1 }]);
-    } else {
-      orders[indexOrder].count++;
+		}
+		else {
+			orders[indexOrder].count++;
       setOrders([...orders]);
-      console.log(orders);
-    }
+		}
   }
 
+  const subItem = (item) => {
+    const subOrder = orders.findIndex((orders) => orders.item === item.item);
+    if (item.count === 1) {
+      return (document.getElementsByName("-").disabled = true);
+    } else {
+      setSubtracao(orders[subOrder].count--);
+    }
+  };
+  
   const deleteItem = (product) => {
     const remove = orders.filter((el) => el.item !== product.item);
     setOrders(remove);
     console.log(product);
   };
 
-  //const bill = () => order.reduce((acc, bill)=> acc + (bill.price * bill.unit), 0)
+  const bill = orders.reduce((acumulador, itemAtual)=>{
+		return acumulador + (itemAtual.price * itemAtual.count)
+	},0)
 
   const sendOrder = (e) => {
     e.preventDefault();
@@ -74,14 +76,16 @@ function ProductsContainer() {
         .collection("orders")
         .doc()
         .set({
+          id: firebase.auth().currentUser.uid,
+          waiter: firebase.auth().currentUser.displayName,
           name: name,
           table: parseInt(table),
           orders: orders,
-          //total,
+          total: bill,
+          time: new Date().toLocaleString('pt-BR')
         })
         .then(() => {
           setOrders([]);
-          //setTotal(0)
           setName("");
           setTable(0);
           alert("Pedido enviado com sucesso");
@@ -114,7 +118,7 @@ function ProductsContainer() {
         <ButtonIn onClick={openAllDay}> Todo o dia </ButtonIn>
       </div>
       <div className="pr-container">
-        <div>
+        <div className='card-list'>
           {morning &&
             menu.breakfast.map((item) => (
               <div className="card" onClick={() => newRequest(item)}>
@@ -136,22 +140,46 @@ function ProductsContainer() {
               </div>
             ))}
         </div>
-      </div>
-
-      <div> Comanda </div>
-      <div>
-        {orders &&
+        <table className='table-request' cellspacing='20px'>
+  <thead> 
+  <tr>
+    <th align='center'>Comanda</th>
+  </tr>     
+  <tr>
+    <th align='center'>Qtd.</th>
+    <th align='center'>Produto</th> 
+    <th align='center'>Valor</th>
+  </tr>
+  </thead>
+  <tbody>
+  {orders &&
           orders.map((item) => (
-            <div>
-              <li>
-                {item.count} {item.item} R${item.price}
-              </li>
-              <p onClick={() => deleteItem(item)}>X</p>
-            </div>
-          ))}
+  <tr>
+    <td align='center'>{subtracao && (
+                      <BtnItem name="-" onClick={() => subItem(item)}>-</BtnItem> 
+                      )}
+        {item.count}
+        <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
+    </td>
+    <td align='center'>{item.item}</td>
+    <td align='center'>R$ {item.price}</td>
+    <td align='center'>
+      <BtnItem className='btn-x' onClick={() => deleteItem(item)}>X</BtnItem>
+    </td>
+  </tr>))}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan='4' align='right' >Total: R$ {bill},00</td>
+    </tr>
+    <tr>
+    <td colspan='4' align='center'><Button onClick={sendOrder}>Enviar Pedido</Button></td>
+    </tr>
+  </tfoot>
+</table>
 
-        <Button onClick={sendOrder}>Enviar Pedido</Button>
       </div>
+      
     </>
   );
 }
