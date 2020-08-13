@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './header.css'
 import LogoHeader from '../LogoHeader/LogoHeader'
 import Button from '../Button/Button'
@@ -21,7 +22,7 @@ function Header(props) {
     return (
             <header className='header'>
                 <LogoHeader />
-                <Button>{props.link1}</Button>
+                <Button><Link to = "/pedidos-prontos"> {props.link1} </Link></Button>
                 {/* <Button>{props.link2}</Button> */}
                 <Button onClick={logout}>Sair</Button>
 
