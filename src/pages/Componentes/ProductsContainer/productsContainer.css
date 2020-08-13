@@ -15,12 +15,16 @@
 .card-list{
   display: flex;
   flex-wrap: wrap;
-  width: 380px;
 }
+
 .card{
   background-color: #c0c0c0;
   width: 150px;
   margin: 20px;
+  box-shadow: inset 0px 3px 3px 0px #666666;
+  border: 5px solid #228B22;
+  padding: 10px;
+  cursor: pointer;
 
 }
 .product {
@@ -29,7 +33,25 @@
   
 }
 
-/* .product-name{
-  pointer-events: none;
+.table-request{
+  background-color: #c0c0c0;
+  width: 500px;
+  margin: 20px;
+  box-shadow: inset 0px 3px 3px 0px #666666;
+  border: 5px solid #228B22;
+  padding: 10px;
 }
- */
+
+.btn-x{
+  width: 35px;
+  height: 35px;
+  border-color:#FF6347;
+  border-radius: 5px;
+  background:linear-gradient(to bottom, #FF7F50 5%, #B22222 100%);
+  box-shadow:inset 0px 1px 0px 0px #e3f1e3;
+  color:#fff;
+  text-shadow:0px 1px 0px #FF0000;
+  font-size: 15px;
+  margin: 5px;
+}
+

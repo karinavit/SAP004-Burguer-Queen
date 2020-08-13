@@ -22,7 +22,7 @@ function Header(props) {
             <header className='header'>
                 <LogoHeader />
                 <Button>{props.link1}</Button>
-                <Button>{props.link2}</Button>
+                {/* <Button>{props.link2}</Button> */}
                 <Button onClick={logout}>Sair</Button>
 
             </header>

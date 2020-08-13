@@ -133,8 +133,11 @@ function ProductsContainer() {
               </div>
             ))}
         </div>
-        <table cellspacing='20px'>
-  <thead>      
+        <table className='table-request' cellspacing='20px'>
+  <thead> 
+  <tr>
+    <th align='center'>Comanda</th>
+  </tr>     
   <tr>
     <th align='center'>Qtd.</th>
     <th align='center'>Produto</th> 
@@ -152,7 +155,7 @@ function ProductsContainer() {
     <td align='center'>{item.item}</td>
     <td align='center'>R$ {item.price}</td>
     <td align='center'>
-      <BtnItem onClick={() => deleteItem(item)}>X</BtnItem>
+      <BtnItem className='btn-x' onClick={() => deleteItem(item)}>X</BtnItem>
     </td>
   </tr>))}
   </tbody>
