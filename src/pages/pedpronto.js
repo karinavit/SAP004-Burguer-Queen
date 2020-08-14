@@ -1,9 +1,10 @@
-//import React from 'react';
-//import Card from './Componentes/Card/Card';
+import React from 'react';
+import Card from './Componentes/Card/Card';
 
 function PedPronto() {
 
-    return 
-  }
+    return (
+    <Card />
+    )}
   
   export default PedPronto;
