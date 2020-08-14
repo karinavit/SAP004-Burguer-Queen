@@ -9,7 +9,7 @@ function Garcom(){
         <>
         <Header link1='Pedidos Prontos' />
         <div className='card-cozinha'>
-        <Card />
+        <Card status= "Em preparo" status2="Pronto" />
         </div>
         </>
     )}

@@ -16,6 +16,7 @@ function ProductsContainer() {
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
   const [subtracao, setSubtracao] = useState(true);
+  //const [status, setStatus] = useState();
 
   useEffect(() => {
     firebase
@@ -82,12 +83,15 @@ function ProductsContainer() {
           table: parseInt(table),
           orders: orders,
           total: bill,
-          time: new Date().toLocaleString('pt-BR')
+          time: new Date().toLocaleString('pt-BR'),
+          status: "Em preparo",
+          timeend: null,
         })
         .then(() => {
           setOrders([]);
           setName("");
           setTable(0);
+          //setStatus("Em preparo")
           alert("Pedido enviado com sucesso");
         });
     } else if (!orders.length) {
