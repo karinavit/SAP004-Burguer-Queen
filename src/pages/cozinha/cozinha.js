@@ -3,10 +3,10 @@ import "./cozinha.css";
 import Header from "../Componentes/Header/Header";
 import Card from "../Componentes/Card/Card";
 
-function Garcom() {
+function Cozinha() {
   return (
     <>
-      <Header link1="Pedidos Prontos" />
+      <Header link1="Pedidos Prontos" link2="Histórico" />
       <div className="card-cozinha">
         <Card status="Em preparo" status2="Pronto" />
       </div>
@@ -14,4 +14,4 @@ function Garcom() {
   );
 }
 
-export default Garcom;
+export default Cozinha;
