@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import './card.css'
 import BtnItem from '../BtnItem/BtnItem'
 import firebase from "../../../fireconfig";
@@ -9,25 +9,27 @@ import "firebase/firestore";
 
 
 function Card() {
-  //const [request, setRequest] = useState();
-  let history = useHistory();
+  const [request, setRequest] = useState();
+  //let history = useHistory();
   //const [setToPrepare] = useState([]);
 
-  useEffect((callback) => { 
+// essa é a função que funciona
+   useEffect(() => { 
     firebase
       .firestore()
       .collection("orders")
-      .orderBy("date", "desc")
-      .onSnapshot(function (querySnapshot) {
+      .onSnapshot(function (item) {
         let cards = [];
-        querySnapshot.forEach(function (doc) {
-          cards.push({ ...doc.data(), id: doc.id });
+        item.forEach(function (item) {
+          cards.push({ ...item.data(), id: item.id });
         });
-        callback(cards);
+        setRequest(cards);
+       
       });
-  },[])
-
-  /* const compare = useEffect(() => {
+      },[]) 
+ 
+      //essa é a função que estamos com a ideia de fazer funcionar a comparação de status
+ /* useEffect(() => {
         firebase
           .firestore()
           .collection('orders')
@@ -39,8 +41,20 @@ function Card() {
               }else{
                 history.push("/pedidos-prontos")
                 
+              }})
+              function card(item){
+                let cards = [];
+                item.forEach(function (item) {
+                  cards.push({ ...item.data(), id: item.id });
+                });
+                setRequest(cards);
               }
-        const compareSnap =   firebase
+              }); */
+              
+
+
+
+       /*  const compareSnap =   firebase
         .onSnapshot((item) => {
           const array = [];
           item.forEach((item) => array.push(item.data()));
@@ -48,7 +62,7 @@ function Card() {
         });
 
           })  
-      },);  */
+      },);  */ 
 
       
 
