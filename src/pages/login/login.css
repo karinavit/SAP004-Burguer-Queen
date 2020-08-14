@@ -26,13 +26,3 @@
     justify-content: center;
     
 }
-
-/* .form{
-    position: absolute;
-} */
-
-@media screen and (min-width: 480px) {
-    /* .form{
-        position: unset;
-    } */
-}

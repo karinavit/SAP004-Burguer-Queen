@@ -1,0 +1,27 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    color:#1C1C1C;
+}
+
+h2{
+    font-size: 30px;
+    margin: 20px;
+}
+.form-login{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-radio{
+    display: flex;
+}
+.radio{
+    width: 300px;
+    margin: 40px;
+}
+
+.btn-btn{
+    display: flex;
+}

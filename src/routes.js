@@ -5,10 +5,11 @@ import "firebase/auth";
 import "firebase/firestore"; */
 
 import Login from './pages/login/login'
-import Register from './pages/Register'
+import Register from './pages/cadastro/Register'
 import Garcom from './pages/garçom/garcom';
 import Cozinha from './pages/cozinha/cozinha'
 import PedPronto from './pages/pedpronto';
+import Historico from './pages/historico/Historico';
 
 /* const PrivateRoute = ({ component: Component, ...rest } ) => (
   <Route
@@ -37,6 +38,7 @@ const Routes = () => (
         <Route path="/garcom" component={Garcom}/>
         <Route path="/cozinha" component={Cozinha} />
         <Route path="/pedidos-prontos" component={PedPronto} />
+        <Route path="/historico" component={Historico} />
       </Switch>
     </BrowserRouter>
   );

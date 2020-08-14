@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from '../Componentes/Form/Form'
+import FormCad from '../Componentes/FormCad/FormCad'
 import Logo from '../Componentes/LogoInicio/Logo'
-import './login.css'
+import '../login/login'
 
-function Login() {
+function Register() {
 
     return (
         <>
@@ -13,11 +13,11 @@ function Login() {
             <Logo />
         </div>
         <div className='form box'>
-        <Form />   
+        <FormCad />   
         </div>
         </div>
         </>
     );
   }
   
-  export default Login;
+  export default Register;
