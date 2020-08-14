@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//import { useHistory } from "react-router-dom";
 import "./card.css";
 import BtnItem from "../BtnItem/BtnItem";
 import firebase from "../../../fireconfig";
@@ -9,8 +8,7 @@ import {MdTimer, MdTimerOff} from 'react-icons/md'
 
 function Card(props) {
   const [request, setRequest] = useState();
-  //let history = useHistory();
-  //const [setToPrepare] = useState([]);
+ 
 
   useEffect(() => {
     firebase
@@ -20,20 +18,18 @@ function Card(props) {
         let cards = [];
         item.forEach(function (item) {
           cards.push({ ...item.data(), id: item.id });
+          
         });
-        cards.filter((orders) => {
-          return orders.status === "Em preparo"
-          /* if("){
-            history.push("/cozinha")
-            return orders.status
-            
-          }else{
-            history.push("/pedidos-prontos")
-          return orders.status === "Pronto"; */
+        console.log(cards)
+        const filterCard = cards.filter((orders) => {
+          
+          return orders.status === props.status
+          
         });
-        setRequest(cards);
+        
+        setRequest(filterCard);
       });
-  },);
+  },[]); // eslint-disable-line
 
   
 
@@ -43,11 +39,9 @@ function Card(props) {
       .firestore()
       .collection("orders")
       .doc(item.id)
-      .update({ status: "Pronto", timeend:new Date().toLocaleTimeString('pt-BR')})
+      .update({ status: props.status2, timeend:new Date().toLocaleTimeString('pt-BR')})
       .then(() => {
-        setRequest(request.filter((request) => request.status === "Pronto"))
-          //return request.item !== item.status;
-     
+             
       });
   };
 
@@ -92,3 +86,4 @@ function Card(props) {
 }
 
 export default Card;
+
