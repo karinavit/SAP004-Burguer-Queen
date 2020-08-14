@@ -12,7 +12,7 @@
 ## 1. Introdução
 Este projeto foi desenvolvido por [Adriana Fernando](https://github.com/AdrianaFernando) 
 e [Karina Vitangelo](https://github.com/karinavit) alunas da 4a Geração da [Laboratoria](https://github.com/Laboratoria) (SAP004).
-O objetivo é criar uma aplicação utilziando um framework (escolhemos o [React](https://pt-br.reactjs.org/))
+O objetivo é criar uma aplicação utilizando um framework (escolhemos o [React](https://pt-br.reactjs.org/))
 Abaixo está a proposta e demais informações detalhadas. 
 
 ## 2. Resumo do projeto
@@ -200,4 +200,13 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 - [ ] 100% de cobertura de _branches_.
 
 ## 6. Acesse nossa Aplicação Finalizada
-link aqui após deploy
+Acesse nossa aplicação neste [link](https://mandalanchos-3e943.web.app/)
+
+**Logins de Teste:**
+Perfil Cozinha
+e-mail: cozinha@cozinha.com
+senha: 123456
+
+Perfil Salão:
+e-mail: salao@salao.com
+senha: 123456
