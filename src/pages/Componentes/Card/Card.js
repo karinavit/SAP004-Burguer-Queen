@@ -33,7 +33,7 @@ function Card() {
         firebase
           .firestore()
           .collection('orders')
-          .get().then((item) => {
+          .get().then((item) => {clear
             
               if (item.status === "Em preparo") {
                 history.push("/cozinha")
