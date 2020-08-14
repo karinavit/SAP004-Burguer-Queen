@@ -7,7 +7,7 @@ function Garcom(){
 
     return (
         <>
-        <Header link1='Pedidos Prontos'/>
+        <Header link1="Pedidos Prontos" link2="Histórico" />
         <ProductsContainer />
         </>
     )}

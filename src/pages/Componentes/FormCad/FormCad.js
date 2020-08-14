@@ -6,8 +6,6 @@ import Button from '../Button/Button';
 import firebase from '../../../fireconfig';
 import 'firebase/auth';
 import 'firebase/firestore';
-//import * as firebase from "firebase/app";
-
 
 
 function FormCad() { 
@@ -37,8 +35,11 @@ function FormCad() {
       })
       .then(
         firebase.auth().currentUser.updateProfile({
-          displayName: name, 
+          displayName: name,
         })
+      .then(
+        alert("Cadastro efetuado, volte e faça o login.")
+      )  
       )
       }
       )}
