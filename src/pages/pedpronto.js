@@ -4,7 +4,8 @@ import Card from './Componentes/Card/Card';
 function PedPronto() {
 
     return (
-    <Card />
+    <div> <Card status="Pronto" status2="Entregue" />
+    </div>
     )}
   
   export default PedPronto;
