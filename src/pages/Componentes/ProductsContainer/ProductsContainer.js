@@ -85,6 +85,7 @@ function ProductsContainer() {
           total: bill,
           time: new Date().toLocaleString('pt-BR'),
           status: "Em preparo",
+          timeend: null,
         })
         .then(() => {
           setOrders([]);
