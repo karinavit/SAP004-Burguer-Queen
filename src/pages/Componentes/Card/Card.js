@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import './card.css'
 import BtnItem from '../BtnItem/BtnItem'
 import firebase from "../../../fireconfig";
@@ -8,10 +9,52 @@ import "firebase/firestore";
 
 
 function Card() {
-  const [request, setRequest] = useState();
-  const [setToPrepare] = useState([]);
+  //const [request, setRequest] = useState();
+  let history = useHistory();
+  //const [setToPrepare] = useState([]);
 
-     useEffect(() => {
+  useEffect((callback) => { 
+    firebase
+      .firestore()
+      .collection("orders")
+      .orderBy("date", "desc")
+      .onSnapshot(function (querySnapshot) {
+        let cards = [];
+        querySnapshot.forEach(function (doc) {
+          cards.push({ ...doc.data(), id: doc.id });
+        });
+        callback(cards);
+      });
+  },[])
+
+  /* const compare = useEffect(() => {
+        firebase
+          .firestore()
+          .collection('orders')
+          .get().then((item) => {
+            
+              if (item.status === "Em preparo") {
+                history.push("/cozinha")
+                
+              }else{
+                history.push("/pedidos-prontos")
+                
+              }
+        const compareSnap =   firebase
+        .onSnapshot((item) => {
+          const array = [];
+          item.forEach((item) => array.push(item.data()));
+          setRequest(array);
+        });
+
+          })  
+      },);  */
+
+      
+
+
+    /*  essa é a função que funciona
+         useEffect(() => {
         firebase
           .firestore()
           .collection('orders')
@@ -21,10 +64,13 @@ function Card() {
             setRequest(array);
           });
       }, []); 
+ */
 
 
 
- const toDone = (e) => {
+
+
+/*  const toDone = (e) => {
  e.preventDefault()
       firebase
           .collection('orders')
@@ -34,7 +80,7 @@ function Card() {
                     id: doc.id, data: doc.data()
                 }));
                 setToPrepare(doc)
-            }) };
+            }) };  */
      
 
     
@@ -69,7 +115,7 @@ function Card() {
               </div>
               <p>{item.time}</p>
               
-              <BtnItem onClick={(e) => toDone(e,item)} Link to="/pedidos-prontos">Pronto!</BtnItem>
+              <BtnItem>Pronto!</BtnItem>
         </div>))}
         </>
     );
@@ -82,32 +128,4 @@ function Card() {
 
     
 
-    /* return (
-        <>
-            <Header
-                primaryLink='Em preparo'
-                primaryRoute='/kitchen'
-                secondLink='Concluídos'
-                secondRoute='/kitchen-done-orders'
-            />
-            <main className={css(styles.main)}>
-                <article className={css(styles.article, styles.flex, styles.minHeight)}>
-                    {ordersToPrepare.length !== 0
-                        ? ordersToPrepare.map(order => (
-                            <OrderCards
-                                {...order}
-                                allOrders={ordersToPrepare}
-                                key={order.id}
-                                waiter={true}
-                            />))
-                        : (
-                            <div className={css(styles.noOrders, styles.flex)}>
-                                Nenhum pedido recebido.
-                            </div>
-                        )
-                    }
-                </article>
-            </main>
-        </>
-    )
-}; */
+   
