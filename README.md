@@ -6,7 +6,7 @@
 - [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários)
 - [4. Instalação do projeto](#4-instalação-do-projeto)
 - [5. Implementações Futuras - Checklist](#5-implementações-futuras-checklist)
-- [6. Dicas e leituras complementares](#6-dicas-e-leituras-complementares)
+- [6. Acesse nossa Aplicação Finalizada](#6-Acesse-nossa-aplicação-finalizada)
 
 
 ## 1. Introdução
