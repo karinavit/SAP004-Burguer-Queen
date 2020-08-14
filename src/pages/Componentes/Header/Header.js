@@ -23,7 +23,7 @@ function Header(props) {
             <header className='header'>
                 <LogoHeader />
                 <Button><Link to = "/pedidos-prontos"> {props.link1} </Link></Button>
-                {/* <Button>{props.link2}</Button> */}
+                <Button><Link to = "/historico"> {props.link2} </Link></Button>
                 <Button onClick={logout}>Sair</Button>
 
             </header>

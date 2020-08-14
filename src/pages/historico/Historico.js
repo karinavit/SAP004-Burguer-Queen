@@ -1,17 +1,19 @@
 import React from "react";
-import "./cozinha.css";
+import {Link} from 'react-router-dom';
 import Header from "../Componentes/Header/Header";
 import Card from "../Componentes/Card/Card";
+import Button from "../Componentes/Button/Button";
 
-function Cozinha() {
+function Historico() {
   return (
     <>
       <Header link1="Pedidos Prontos" link2="Histórico" />
+      <Button><Link to='./garcom'>Voltar</Link></Button>
       <div className="card-cozinha">
-        <Card status="Em preparo" status2="Pronto" />
+        <Card status="Entregue" />
       </div>
     </>
   );
 }
 
-export default Cozinha;
+export default Historico;
