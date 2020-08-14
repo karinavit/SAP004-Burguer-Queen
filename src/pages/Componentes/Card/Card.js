@@ -4,11 +4,10 @@ import BtnItem from "../BtnItem/BtnItem";
 import firebase from "../../../fireconfig";
 import "firebase/auth";
 import "firebase/firestore";
-import {MdTimer, MdTimerOff} from 'react-icons/md'
+import { MdTimer, MdTimerOff } from "react-icons/md";
 
 function Card(props) {
   const [request, setRequest] = useState();
- 
 
   useEffect(() => {
     firebase
@@ -18,20 +17,15 @@ function Card(props) {
         let cards = [];
         item.forEach(function (item) {
           cards.push({ ...item.data(), id: item.id });
-          
         });
-        console.log(cards)
+        console.log(cards);
         const filterCard = cards.filter((orders) => {
-          
-          return orders.status === props.status
-          
+          return orders.status === props.status;
         });
-        
+
         setRequest(filterCard);
       });
-  },[]); // eslint-disable-line
-
-  
+  }, []); // eslint-disable-line
 
   const toDone = (e, item) => {
     e.preventDefault();
@@ -39,10 +33,11 @@ function Card(props) {
       .firestore()
       .collection("orders")
       .doc(item.id)
-      .update({ status: props.status2, timeend:new Date().toLocaleTimeString('pt-BR')})
-      .then(() => {
-             
-      });
+      .update({
+        status: props.status2,
+        timeend: new Date().toLocaleTimeString("pt-BR"),
+      })
+      .then(() => {});
   };
 
   return (
@@ -75,8 +70,14 @@ function Card(props) {
                 </tbody>
               </table>
             </div>
-            <p><MdTimer />{item.time}</p>
-            <p><MdTimerOff />{item.timeend}</p>
+            <p>
+              <MdTimer />
+              {item.time}
+            </p>
+            <p>
+              <MdTimerOff />
+              {item.timeend}
+            </p>
 
             <BtnItem onClick={(e) => toDone(e, item)}>Pronto!</BtnItem>
           </div>
@@ -86,4 +87,3 @@ function Card(props) {
 }
 
 export default Card;
-

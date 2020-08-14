@@ -6,7 +6,7 @@ import firebase from "../../../fireconfig";
 import "firebase/auth";
 import "firebase/firestore";
 import Button from "../Button/Button";
-import BtnItem from '../BtnItem/BtnItem'
+import BtnItem from "../BtnItem/BtnItem";
 
 function ProductsContainer() {
   const [menu, setMenu] = useState();
@@ -16,7 +16,6 @@ function ProductsContainer() {
   const [name, setName] = useState("");
   const [table, setTable] = useState("");
   const [subtracao, setSubtracao] = useState(true);
-
 
   useEffect(() => {
     firebase
@@ -40,14 +39,13 @@ function ProductsContainer() {
   }
 
   function newRequest(item, operacao) {
-		const indexOrder = orders.findIndex((order) => order.item === item.item);
+    const indexOrder = orders.findIndex((order) => order.item === item.item);
     if (indexOrder === -1) {
       setOrders([...orders, { ...item, count: 1 }]);
-		}
-		else {
-			orders[indexOrder].count++;
+    } else {
+      orders[indexOrder].count++;
       setOrders([...orders]);
-		}
+    }
   }
 
   const subItem = (item) => {
@@ -58,16 +56,16 @@ function ProductsContainer() {
       setSubtracao(orders[subOrder].count--);
     }
   };
-  
+
   const deleteItem = (product) => {
     const remove = orders.filter((el) => el.item !== product.item);
     setOrders(remove);
     console.log(product);
   };
 
-  const bill = orders.reduce((acumulador, itemAtual)=>{
-		return acumulador + (itemAtual.price * itemAtual.count)
-	},0)
+  const bill = orders.reduce((acumulador, itemAtual) => {
+    return acumulador + itemAtual.price * itemAtual.count;
+  }, 0);
 
   const sendOrder = (e) => {
     e.preventDefault();
@@ -83,7 +81,7 @@ function ProductsContainer() {
           table: parseInt(table),
           orders: orders,
           total: bill,
-          time: new Date().toLocaleString('pt-BR'),
+          time: new Date().toLocaleString("pt-BR"),
           status: "Em preparo",
           timeend: null,
         })
@@ -91,7 +89,7 @@ function ProductsContainer() {
           setOrders([]);
           setName("");
           setTable(0);
-          
+
           alert("Pedido enviado com sucesso");
         });
     } else if (!orders.length) {
@@ -122,7 +120,7 @@ function ProductsContainer() {
         <ButtonIn onClick={openAllDay}> Todo o dia </ButtonIn>
       </div>
       <div className="pr-container">
-        <div className='card-list'>
+        <div className="card-list">
           {morning &&
             menu.breakfast.map((item) => (
               <div className="card" onClick={() => newRequest(item)}>
@@ -144,46 +142,54 @@ function ProductsContainer() {
               </div>
             ))}
         </div>
-        <table className='table-request' cellspacing='20px'>
-  <thead> 
-  <tr>
-    <th align='center'>Comanda</th>
-  </tr>     
-  <tr>
-    <th align='center'>Qtd.</th>
-    <th align='center'>Produto</th> 
-    <th align='center'>Valor</th>
-  </tr>
-  </thead>
-  <tbody>
-  {orders &&
-          orders.map((item) => (
-  <tr>
-    <td align='center'>{subtracao && (
-                      <BtnItem name="-" onClick={() => subItem(item)}>-</BtnItem> 
-                      )}
-        {item.count}
-        <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
-    </td>
-    <td align='center'>{item.item}</td>
-    <td align='center'>R$ {item.price}</td>
-    <td align='center'>
-      <BtnItem className='btn-x' onClick={() => deleteItem(item)}>X</BtnItem>
-    </td>
-  </tr>))}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan='4' align='right' >Total: R$ {bill},00</td>
-    </tr>
-    <tr>
-    <td colspan='4' align='center'><Button onClick={sendOrder}>Enviar Pedido</Button></td>
-    </tr>
-  </tfoot>
-</table>
-
+        <table className="table-request" cellspacing="20px">
+          <thead>
+            <tr>
+              <th align="center">Comanda</th>
+            </tr>
+            <tr>
+              <th align="center">Qtd.</th>
+              <th align="center">Produto</th>
+              <th align="center">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders &&
+              orders.map((item) => (
+                <tr>
+                  <td align="center">
+                    {subtracao && (
+                      <BtnItem name="-" onClick={() => subItem(item)}>
+                        -
+                      </BtnItem>
+                    )}
+                    {item.count}
+                    <BtnItem onClick={() => newRequest(item, 1)}>+</BtnItem>
+                  </td>
+                  <td align="center">{item.item}</td>
+                  <td align="center">R$ {item.price}</td>
+                  <td align="center">
+                    <BtnItem className="btn-x" onClick={() => deleteItem(item)}>
+                      X
+                    </BtnItem>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" align="right">
+                Total: R$ {bill},00
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" align="center">
+                <Button onClick={sendOrder}>Enviar Pedido</Button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
-      
     </>
   );
 }
