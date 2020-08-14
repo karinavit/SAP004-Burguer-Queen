@@ -84,12 +84,14 @@ function ProductsContainer() {
           orders: orders,
           total: bill,
           time: new Date().toLocaleString('pt-BR'),
-        
+          status: "Em preparo",
+          timeend: null,
         })
         .then(() => {
           setOrders([]);
           setName("");
           setTable(0);
+          
           alert("Pedido enviado com sucesso");
         });
     } else if (!orders.length) {

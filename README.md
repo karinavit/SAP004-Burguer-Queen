@@ -1,68 +1,203 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Burguer-Queen
 
-## Available Scripts
 
-In the project directory, you can run:
+- [1. Introdução](#1-introdução)
+- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários)
+- [4. Instalação do projeto](#4-instalação-do-projeto)
+- [5. Implementações Futuras - Checklist](#5-implementações-futuras-checklist)
+- [6. Acesse nossa Aplicação Finalizada](#6-Acesse-nossa-aplicação-finalizada)
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. Introdução
+Este projeto foi desenvolvido por [Adriana Fernando](https://github.com/AdrianaFernando) 
+e [Karina Vitangelo](https://github.com/karinavit) alunas da 4a Geração da [Laboratoria](https://github.com/Laboratoria) (SAP004).
+O objetivo é criar uma aplicação utilziando um framework (escolhemos o [React](https://pt-br.reactjs.org/))
+Abaixo está a proposta e demais informações detalhadas. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 2. Resumo do projeto
+Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
-### `npm test`
+![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Estas são as informações que temos do cliente:
 
-### `npm run build`
+> Somos **Burger Queen**, um fast food 24hrs.
+>
+> A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
+> crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
+> clientes.
+>
+> Nós temos 2 menus. Um muito simples para o café da manhã:
+>
+> | Ítem                  | Preço R\$ |
+> | --------------------- | --------- |
+> | Café americano        | 5         |
+> | Café com leite        | 7         |
+> | Misto Quente          | 10        |
+> | Suco de fruta natural | 7         |
+>
+> E outro menu para o resto do dia:
+>
+> | Ítem                | Preço   |
+> | ------------------- | ------- |
+> | **Hambúrgueres**    | **R\$** |
+> | Hambúrguer simples  | 10      |
+> | Hambúrguer duplo    | 15      |
+> | **Acompanhamentos** | **R\$** |
+> | Batata frita        | 5       |
+> | Anéis de cebola     | 5       |
+> | **Bebidas**         | **R\$** |
+> | Água 500ml          | 5       |
+> | Água 750ml          | 7       |
+> | Refrigerante 500ml  | 7       |
+> | Refrigerante 750ml  | 10      |
+>
+> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
+> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
+> adicionar queijo ou ovo.
+>
+> Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
+> seu pedido várias vezes antes de finalizar.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
+um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
+adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 3. Definição de Produto e Histórias de Usuários
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Definição do produto
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### [História de usuário 1] Usuário deve ter seu perfil (login/senha) para acessar o sistema.
 
-## Learn More
+Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### Critérios de aceitação
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O que deve acontecer para satisfazer as necessidades do usuário?
 
-### Code Splitting
+- [x] Poder realizar cadastro com e-mail, senha e função.
+- [x] Poder realizar login com e-mail e senha.
+- [x] Redirecionar para a tela correta.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### [História de usuário 2] Garçom/Garçonete deve poder anotar o seu pedido
 
-### Analyzing the Bundle Size
+Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada produto e poder enviar o pedido para a cozinha para ser preparado.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+##### Critérios de aceitação
 
-### Making a Progressive Web App
+O que deve acontecer para satisfazer as necessidades do usuário?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- [x] Digitar o nome do cliente e mesa.
+- [x] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
+- [x] Adicionar item ao pedido.
+- [x] Excluir item do pedido.
+- [x] Mostrar _resumo_ do pedido com todos os itens e o total.
+- [x] Enviar para a cozinha (isso deve salvar o pedido).
+---
 
-### Advanced Configuration
+#### [História de usuário 3] Chefe de cozinha deve ver os pedidos
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
 
-### Deployment
+##### Critérios de aceitação
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- [x] Visualizar pedidos pendentes para produção.
+- [x] Marcar pedido como pronto para entrega.
+- [x] Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado como concluído.
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### [História de usuário 4] Garçom/Garçonete deve ver os pedidos prontos para servir
+
+Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
+
+##### Critérios de aceitação
+
+- Ver a lista de pedidos prontos para servir.
+- Marque os pedidos que foram entregues.
+
+##### Definição de pronto
+
+- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+- Você deu deploy de seu aplicativo.
+- Os dados devem ser mantidos intactos, mesmo depois que um pedido terminado. Tudo isso para poder ter estatísticas no futuro.
+
+### UX
+
+- [x] Funciona bem em tablets.
+- [x] Fácil utilização em telas sensíveis ao toque.
+---
+
+## 4. Instalação do projeto
+
+Caso deseje baixar o projeto para sua máquina é possível criar um fork do nosso repositório e depois disso, você deve realizar um "clone" ou "donwload" do **link fornecido pelo seu repositório** para então digitar em seu terminal:
+
+  `git clone <cole seu link após isso>`
+  
+O repositório será completamente baixado em sua máquina, e caso use o Visual Studio Code, basta entrar na pasta pelo terminal e digitar:
+
+  `code .`
+
+Caso não possua o Node.js instalado, basta clicar nesse link [aqui](https://nodejs.org/pt-br/download/) e fazer o download, pois, para executar ele em seu computador, será necessário realizar a instalação da pasta node modules, com o uso do NPM (nativo do Node.js).
+
+Assim que a instalação tiver sido concluída, basta digitar em seu terminal:
+
+`npm install` 
+
+E aguardar até que o processo tenha sido completo.
+
+É importante ressaltar que também utilizamos o [React](https://pt-br.reactjs.org/) e o [React-Router-Dom](https://reactrouter.com/web/guides/quick-start). 
+
+### Antes de instalar o Firebase, certifique-se de criar uma conta e abrir um projeto novo ( visto que você não terá acesso ao nosso banco de dados):
+
+Lembre-se de instalar o Firebase, utilizando o comando (este comando irá instalar o Firebase globalmente em sua máquina):
+
+`npm install -g firebase-tools`
+
+Faça login no Google. Execute este comando: (Esse comando conecta sua máquina local ao Firebase e concede acesso aos seus projetos.)
+
+`firebase login`
+
+Inicialize seu projeto utilizando o comando:
+
+  `firebase init`
+
+Para abrir um servidor a fim de executar o projeto em seu navegador, é só digitar:
+  
+  `firebase serve`
+
+Basta clicar no link (localhost) que será disponibilizado em seu terminal. 
+
+Após manipular o projeto e então realizar um deploy, utilize o seguinte comando:
+
+`firebase deploy`
+
+## 5. Implementações Futuras - Checklist
+Abaixo listamos as atividades para implementação futura:
+
+- [ ] Documentação do processo de design.
+- [ ] HU1: Aperfeiçoamento das rotas privadas e internas
+- [ ] HU3: Ver histórico dos pedidos.
+- [ ] HU4: Visualizar pedidos pendentes para entrega.
+- [ ] HU4: Marcar pedido como entregue ao cliente.
+- [ ] UX: Status atual do pedido sempre visível enquanto fazemos um pedido.
+
+### Hacker Edition
+
+As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
+
+- Faça testes que cubram 100% de statements, functions, lines e branches.
+- [ ] 100% de cobertura de _statements_.
+- [ ] 100% de cobertura de _functions_.
+- [ ] 100% de cobertura de _lines_.
+- [ ] 100% de cobertura de _branches_.
+
+## 6. Acesse nossa Aplicação Finalizada
+link aqui após deploy
