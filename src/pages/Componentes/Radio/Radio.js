@@ -1,5 +1,4 @@
 import React from 'react';
-import './radio.css';
 
 function Radio(props) {
 
@@ -7,15 +6,15 @@ function Radio(props) {
         <>
         <label htmlFor={props.id}>
             {props.text}
-        </label>
-        <input 
+            <input 
             className='input-radio'
             id={props.id}
             type="radio"
             placeholder={props.placeholder}
             value={props.value}
             {...props}
-        />
+        />    
+        </label>
         </>
     )}
   

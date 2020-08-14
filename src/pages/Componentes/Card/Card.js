@@ -9,7 +9,7 @@ import "firebase/firestore";
 
 function Card() {
   const [request, setRequest] = useState();
-  const [setToPrepare] = useState([]);
+  //const [setToPrepare] = useState([]);
 
      useEffect(() => {
         firebase
@@ -18,13 +18,13 @@ function Card() {
           .onSnapshot((item) => {
             const array = [];
             item.forEach((item) => array.push(item.data()));
-            setRequest(array);
+            setRequest(array)
           });
       }, []); 
 
 
 
- const toDone = (e) => {
+/*  const toDone = (e) => {
  e.preventDefault()
       firebase
           .collection('orders')
@@ -35,7 +35,7 @@ function Card() {
                 }));
                 setToPrepare(doc)
             }) };
-     
+      */
 
     
 
@@ -49,7 +49,6 @@ function Card() {
                 <h4 className='txt-header'>Cliente: {item.name}</h4>
                 <h4 className='txt-header'>Nº da Mesa: {item.table}</h4>
                 <h4 className='txt-header'>Atendente: {item.waiter}</h4>
-                <h4 className='txt-header'>Status: {item.status}</h4>
                 </div>
                 <table cellspacing='15px'> 
                   <thead>
@@ -69,7 +68,7 @@ function Card() {
               </div>
               <p>{item.time}</p>
               
-              <BtnItem onClick={(e) => toDone(e,item)} Link to="/pedidos-prontos">Pronto!</BtnItem>
+              <BtnItem >Pronto!</BtnItem>
         </div>))}
         </>
     );
