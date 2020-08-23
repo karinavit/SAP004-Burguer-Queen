@@ -200,13 +200,21 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 - [ ] 100% de cobertura de _branches_.
 
 ## 6. Acesse nossa Aplicação Finalizada
+
 Acesse nossa aplicação neste [link](https://mandalanchos-3e943.web.app/)
 
+![BurguerQueen](https://user-images.githubusercontent.com/61189470/90974047-fcf51380-e4fd-11ea-9fc6-4a5e2e72f79e.png)
+
+
 **Logins de Teste:**
-Perfil Cozinha
-e-mail: cozinha@cozinha.com
+
+Perfil Cozinha: 
+
+e-mail: cozinha@cozinha.com  
 senha: 123456
 
 Perfil Salão:
+
 e-mail: salao@salao.com
+
 senha: 123456
