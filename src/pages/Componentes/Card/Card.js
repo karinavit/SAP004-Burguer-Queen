@@ -18,7 +18,7 @@ function Card(props) {
         item.forEach(function (item) {
           cards.push({ ...item.data(), id: item.id });
         });
-        console.log(cards);
+        
         const filterCard = cards.filter((orders) => {
           return orders.status === props.status;
         });
@@ -37,7 +37,7 @@ function Card(props) {
         status: props.status2,
         timeend: new Date().toLocaleTimeString("pt-BR"),
       })
-      .then(() => {});
+      
   };
 
   return (
