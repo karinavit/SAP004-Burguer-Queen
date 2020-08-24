@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.logo-img{
+    position: absolute;
+}
+
+.box{
+    background-color: #C0C0C0;
+    box-shadow: inset 0px 3px 3px 0px #e3f1e3;
+    display: flex;
+    position: absolute;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    top: 275px;
+    border: 5px solid #228B22;
+    justify-content: center;
+    
+}
