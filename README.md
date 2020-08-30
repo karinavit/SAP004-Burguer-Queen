@@ -4,7 +4,7 @@
 - [1. Introdução](#1-introdução)
 - [2. Acesse nossa Aplicação Finalizada](#2-Acesse-nossa-aplicação-finalizada)
 - [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários)
-- [4. Implementações Futuras - Checklist](#4-implementações-futuras-checklist)
+- [4. Implementações Futuras Checklist](#4-implementações-futuras-checklist)
 - [5. Instalação do projeto](#5-instalação-do-projeto)
 
 
@@ -15,7 +15,8 @@ A proposta é criar uma aplicação que auxilie um restaurante em fase de cresci
 A aplicação foi desenvolvida utilizando [React](https://pt-br.reactjs.org/), [JavaScript, HTML5 e CSS3](https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript). Hospedamos a mesma juntamente com seu de dados no [Firebase](https://firebase.google.com/?hl=pt). Com foco na usabilidade em tablets e web. 
 
 ### Planejamento
-Com base na Metodologia Ágil, foi criado um quadro no Trello, onde definimos tarefas de acordo com cada história de usuário (veja mais sobre as [Histórias de Usuários]((#3-definição-de-produto-e-histórias-de-usuários))). e assim conseguíamos acompanhar, revisar e ajustar conforme necessário. 
+Com base na Metodologia Ágil, foi criado um quadro no Trello, onde definimos tarefas de acordo com cada história de usuário, veja mais sobre na parte [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários), e assim conseguíamos acompanhar, revisar e ajustar conforme necessário. 
+
 ### Nosso Quadro
 ![oie_m7GGAtPlkDba](https://user-images.githubusercontent.com/61189470/91666276-d6247780-ead1-11ea-8b16-b30cb09c7156.png)
 
@@ -104,7 +105,7 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 - [x] Fácil utilização em telas sensíveis ao toque.
 ---
 
-## 4. Implementações Futuras - Checklist
+## 4. Implementações Futuras Checklist
 Pensando em melhorias para o nossa aplicação, abaixo listamos as atividades para implementação futura:
 
 - [ ] Documentação do processo de design.
