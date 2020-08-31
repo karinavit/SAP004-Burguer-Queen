@@ -2,70 +2,42 @@
 
 
 - [1. Introdução](#1-introdução)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [2. Acesse nossa Aplicação Finalizada](#2-Acesse-nossa-aplicação-finalizada)
 - [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários)
-- [4. Instalação do projeto](#4-instalação-do-projeto)
-- [5. Implementações Futuras - Checklist](#5-implementações-futuras-checklist)
-- [6. Acesse nossa Aplicação Finalizada](#6-Acesse-nossa-aplicação-finalizada)
+- [4. Implementações Futuras Checklist](#4-implementações-futuras-checklist)
+- [5. Instalação do projeto](#5-instalação-do-projeto)
 
 
 ## 1. Introdução
 Este projeto foi desenvolvido por [Adriana Fernando](https://github.com/AdrianaFernando) 
 e [Karina Vitangelo](https://github.com/karinavit) alunas da 4a Geração da [Laboratoria](https://github.com/Laboratoria) (SAP004).
-O objetivo é criar uma aplicação utilizando um framework (escolhemos o [React](https://pt-br.reactjs.org/))
-Abaixo está a proposta e demais informações detalhadas. 
+A proposta é criar uma aplicação que auxilie um restaurante em fase de crescimento de modo a agilizar as anotações de pedidos, gestão de preparo e entrega dos mesmos. 
+A aplicação foi desenvolvida utilizando [React](https://pt-br.reactjs.org/), [JavaScript, HTML5 e CSS3](https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript). Hospedamos a mesma juntamente com seu de dados no [Firebase](https://firebase.google.com/?hl=pt). Com foco na usabilidade em tablets e web. 
 
-## 2. Resumo do projeto
-Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
+### Planejamento
+Com base na Metodologia Ágil, foi criado um quadro no Trello, onde definimos tarefas de acordo com cada história de usuário, veja mais sobre na parte [3. Definição de Produto e Histórias de Usuários](#3-definição-de-produto-e-histórias-de-usuários), e assim conseguíamos acompanhar, revisar e ajustar conforme necessário. 
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
+### Nosso Quadro
+![oie_m7GGAtPlkDba](https://user-images.githubusercontent.com/61189470/91666276-d6247780-ead1-11ea-8b16-b30cb09c7156.png)
 
-Estas são as informações que temos do cliente:
+## 2. Acesse nossa Aplicação Finalizada
+Acesse nossa aplicação neste [link](https://mandalanchos-3e943.web.app/)
 
-> Somos **Burger Queen**, um fast food 24hrs.
->
-> A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
-> crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
-> clientes.
->
-> Nós temos 2 menus. Um muito simples para o café da manhã:
->
-> | Ítem                  | Preço R\$ |
-> | --------------------- | --------- |
-> | Café americano        | 5         |
-> | Café com leite        | 7         |
-> | Misto Quente          | 10        |
-> | Suco de fruta natural | 7         |
->
-> E outro menu para o resto do dia:
->
-> | Ítem                | Preço   |
-> | ------------------- | ------- |
-> | **Hambúrgueres**    | **R\$** |
-> | Hambúrguer simples  | 10      |
-> | Hambúrguer duplo    | 15      |
-> | **Acompanhamentos** | **R\$** |
-> | Batata frita        | 5       |
-> | Anéis de cebola     | 5       |
-> | **Bebidas**         | **R\$** |
-> | Água 500ml          | 5       |
-> | Água 750ml          | 7       |
-> | Refrigerante 500ml  | 7       |
-> | Refrigerante 750ml  | 10      |
->
-> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
-> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
-> adicionar queijo ou ovo.
->
-> Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
-> seu pedido várias vezes antes de finalizar.
+![BurguerQueen](https://user-images.githubusercontent.com/61189470/90974047-fcf51380-e4fd-11ea-9fc6-4a5e2e72f79e.png)
 
-A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
-um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
-adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
-![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
+**Logins de Teste:**
 
+Perfil Cozinha: 
+
+e-mail: cozinha@cozinha.com  
+senha: 123456
+
+Perfil Salão:
+
+e-mail: salao@salao.com
+
+senha: 123456
 
 ## 3. Definição de Produto e Histórias de Usuários
 
@@ -124,8 +96,6 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 - Marque os pedidos que foram entregues.
 
 ##### Definição de pronto
-
-- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
 - Você deu deploy de seu aplicativo.
 - Os dados devem ser mantidos intactos, mesmo depois que um pedido terminado. Tudo isso para poder ter estatísticas no futuro.
 
@@ -135,7 +105,22 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 - [x] Fácil utilização em telas sensíveis ao toque.
 ---
 
-## 4. Instalação do projeto
+## 4. Implementações Futuras Checklist
+Pensando em melhorias para o nossa aplicação, abaixo listamos as atividades para implementação futura:
+
+- [ ] Documentação do processo de design.
+- [ ] HU1: Aperfeiçoamento das rotas privadas e internas
+- [ ] HU3: Ver histórico dos pedidos.
+- [ ] HU4: Visualizar pedidos pendentes para entrega.
+- [ ] HU4: Marcar pedido como entregue ao cliente.
+- [ ] UX: Status atual do pedido sempre visível enquanto fazemos um pedido.
+- Fazer testes que cubram 100% de statements, functions, lines e branches.
+- [ ] 100% de cobertura de _statements_.
+- [ ] 100% de cobertura de _functions_.
+- [ ] 100% de cobertura de _lines_.
+- [ ] 100% de cobertura de _branches_.
+
+## 5. Instalação do projeto
 
 Caso deseje baixar o projeto para sua máquina é possível criar um fork do nosso repositório e depois disso, você deve realizar um "clone" ou "donwload" do **link fornecido pelo seu repositório** para então digitar em seu terminal:
 
@@ -179,42 +164,5 @@ Após manipular o projeto e então realizar um deploy, utilize o seguinte comand
 
 `firebase deploy`
 
-## 5. Implementações Futuras - Checklist
-Abaixo listamos as atividades para implementação futura:
-
-- [ ] Documentação do processo de design.
-- [ ] HU1: Aperfeiçoamento das rotas privadas e internas
-- [ ] HU3: Ver histórico dos pedidos.
-- [ ] HU4: Visualizar pedidos pendentes para entrega.
-- [ ] HU4: Marcar pedido como entregue ao cliente.
-- [ ] UX: Status atual do pedido sempre visível enquanto fazemos um pedido.
-
-### Hacker Edition
-
-As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
-
-- Faça testes que cubram 100% de statements, functions, lines e branches.
-- [ ] 100% de cobertura de _statements_.
-- [ ] 100% de cobertura de _functions_.
-- [ ] 100% de cobertura de _lines_.
-- [ ] 100% de cobertura de _branches_.
-
-## 6. Acesse nossa Aplicação Finalizada
-
-Acesse nossa aplicação neste [link](https://mandalanchos-3e943.web.app/)
-
-![BurguerQueen](https://user-images.githubusercontent.com/61189470/90974047-fcf51380-e4fd-11ea-9fc6-4a5e2e72f79e.png)
 
 
-**Logins de Teste:**
-
-Perfil Cozinha: 
-
-e-mail: cozinha@cozinha.com  
-senha: 123456
-
-Perfil Salão:
-
-e-mail: salao@salao.com
-
-senha: 123456
