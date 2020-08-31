@@ -79,7 +79,7 @@ function Card(props) {
               {item.timeend}
             </p>
 
-            <BtnItem onClick={(e) => toDone(e, item)}>Pronto!</BtnItem>
+            <BtnItem className='btn-done' onClick={(e) => toDone(e, item)}>Pronto!</BtnItem>
           </div>
         ))}
     </>
